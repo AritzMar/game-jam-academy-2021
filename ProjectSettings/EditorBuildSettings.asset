@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Audio/AudioTesting.unity
+    guid: 32c3d7eb0ea96a946a40da89e0e73b0c
   m_configObjects: {}

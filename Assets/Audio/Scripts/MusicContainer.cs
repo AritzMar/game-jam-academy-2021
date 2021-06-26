@@ -10,16 +10,23 @@ public class MusicContainer : MonoBehaviour
     public int beatLookAhead;
 
     [Header("MUSIC SEGMENTS")]
-    public int maxMusicSegmentsToPlay;
-    public AudioSource main_source;
-    public AudioSource aux_source;
+    public AudioSource main_sourcePiano;
+    public AudioSource aux_sourcePiano;
+    public AudioSource main_sourceMelody, aux_sourceMelody;
+    public AudioSource main_sourcePerc, aux_sourcePerc;
+    public AudioSource main_sourcePercFinal, aux_sourcePercFinal;
 
     //CLIPS AUDIOCLIP
-    public bool playRandom;
-    public bool stopOnLastTrack;
     public int beatsPerBar;
     [Tooltip("Cuentan con que hay un compás de cola")]
-    public AudioClip[] music_segments;
+    [Header("--CLIPS---")]
+    public bool onlyOneSection;
+    // Siempre suenan
+    public AudioClip[] music_segmentsPiano; // uses for time calculation and so
+    // Variables
+    public AudioClip[] music_segmentsMelody;
+    public AudioClip[] music_segmentsPerc;
+    public AudioClip music_segmentPercFinal;
     protected int indexSegment = -1; //Así empieza por el 0
 
     //CONTROL
@@ -38,12 +45,9 @@ public class MusicContainer : MonoBehaviour
     private void Awake()
     {
         Get_DataValues();
-        if (playRandom && stopOnLastTrack)
-        {
-            Debug.LogError("Music container random mode and Stop on last track. Disable random mode.");
-        }
     }
-	private void Update()
+
+    private void Update()
     {
         if (!isPlaying)
             return;
@@ -53,10 +57,6 @@ public class MusicContainer : MonoBehaviour
         if (AudioSettings.dspTime >= nextBeatTime)
         {
             Check_ResetBeatCount();
-        }
-        if (ouputSelector >= maxMusicSegmentsToPlay && maxMusicSegmentsToPlay > 0)
-        {
-            // Write stop method after number of clips are played
         }
     }
 
@@ -89,58 +89,56 @@ public class MusicContainer : MonoBehaviour
 
         ouputSelector++;
 
-        if (ouputSelector > music_segments.Length - 1 && stopOnLastTrack) //If we want to stop on last track
-        {
-            return;
-        }
-
-
         if (ouputSelector % 2 == 0)
         {
-            main_source.clip = music_segments[indexSegment];
-            main_source.PlayScheduled(nextEvent);
+            FillAudioSource(main_sourcePiano, main_sourceMelody, main_sourcePerc, main_sourcePercFinal,nextEvent);
         }
         else
         {
-            aux_source.clip = music_segments[indexSegment];
-            aux_source.PlayScheduled(nextEvent);
+            FillAudioSource(aux_sourcePiano, aux_sourceMelody, aux_sourcePerc, aux_sourcePercFinal, nextEvent);
         }
-
+    }
+    private void FillAudioSource(AudioSource piano, AudioSource melody, AudioSource perc,AudioSource percFinal , double nextEvent_temp)
+	{
+        piano.clip = music_segmentsPiano[indexSegment];
+        piano.PlayScheduled(nextEvent_temp);
+        melody.clip = music_segmentsMelody[indexSegment];
+        melody.PlayScheduled(nextEvent_temp);
+        perc.clip = music_segmentsPerc[indexSegment];
+        perc.PlayScheduled(nextEvent_temp);
+        percFinal.clip = music_segmentPercFinal;
+        percFinal.PlayScheduled(nextEvent_temp);
     }
 
     private void New_IndexSegment() 
     {
-        if (playRandom)
-        {
-            int prevSegment = indexSegment;
-            do
-            {
-                indexSegment = Random.Range(1, music_segments.Length);
-			} while (indexSegment == prevSegment);  //evitar repeticion
-
-		}
-        else
-        {
+        if (!onlyOneSection)
             indexSegment++;
-            if (indexSegment == music_segments.Length)
-            {
-                indexSegment = 1;   //para que no toque el 0 que es intro
-            }
-        }
-
-        clipFinishTime = nextEvent + GetClipLength(indexSegment) - beatDuration; //le quito un bar porque si no no lo mete a tiempo
+        else
+            indexSegment = 0;
+        /*
+        if (indexSegment == music_segmentsPiano.Length)
+        {
+            indexSegment = 1;   //para que no toque el 0 que es intro
+        }*/
+        
+        clipFinishTime = nextEvent + GetClipLength(indexSegment) - beatDuration - beatDuration * 4; //le quito un bar porque si no no lo mete a tiempo y una parte de la cola
 
     }
 
     private double GetClipLength(int index)
     {
-        return (double)music_segments[index].samples / music_segments[index].frequency - barDuration;
+        return (double)music_segmentsPiano[index].samples / music_segmentsPiano[index].frequency - barDuration;
     }
 
     public void StopTracks()
     {
-        main_source.Stop();
-        aux_source.Stop();
+        main_sourcePerc.Stop();
+        main_sourcePiano.Stop();
+        main_sourceMelody.Stop();
+        aux_sourcePiano.Stop();
+        aux_sourcePerc.Stop();
+        aux_sourceMelody.Stop();
         ResetValues();
     }
     private void ResetValues()
