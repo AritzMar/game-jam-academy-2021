@@ -100,14 +100,27 @@ public class MusicContainer : MonoBehaviour
     }
     private void FillAudioSource(AudioSource piano, AudioSource melody, AudioSource perc,AudioSource percFinal , double nextEvent_temp)
 	{
+        //Regular
         piano.clip = music_segmentsPiano[indexSegment];
         piano.PlayScheduled(nextEvent_temp);
-        melody.clip = music_segmentsMelody[indexSegment];
-        melody.PlayScheduled(nextEvent_temp);
-        perc.clip = music_segmentsPerc[indexSegment];
-        perc.PlayScheduled(nextEvent_temp);
         percFinal.clip = music_segmentPercFinal;
         percFinal.PlayScheduled(nextEvent_temp);
+
+        //Variables
+        if (music_segmentsMelody.Length > 1)
+            melody.clip = music_segmentsMelody[Random.Range(0, music_segmentsMelody.Length - 1)];
+        else
+            melody.clip = music_segmentsMelody[indexSegment];
+        melody.PlayScheduled(nextEvent_temp);
+
+        if (music_segmentsPerc.Length > 1)
+            perc.clip = music_segmentsPerc[Random.Range(0, music_segmentsPerc.Length - 1)];
+        else
+            perc.clip = music_segmentsPerc[indexSegment];
+        perc.PlayScheduled(nextEvent_temp);
+        perc.PlayScheduled(nextEvent_temp);
+
+
     }
 
     private void New_IndexSegment() 
