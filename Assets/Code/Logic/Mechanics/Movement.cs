@@ -3,6 +3,7 @@ using UnityEngine.AI;
 
 namespace Chtulhitos.Mechanics
 {
+    [RequireComponent(typeof(NavMeshAgent))]
     public class Movement : MonoBehaviour
     {
         public NavMeshAgent agent;
@@ -13,6 +14,12 @@ namespace Chtulhitos.Mechanics
             get { return speed; }
             private set { speed = value; }
         }
+
+        private void Start() 
+        {
+            agent.speed = Speed;
+        }
+
         void Update()
         {
             MoveWithAgentWithARay();
