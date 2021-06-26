@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 815334e08bef2324e8a86ea954e5b471, type: 3}
+  m_Name: AGONIA
+  m_EditorClassIdentifier: 
+  initialValue: 0
+  minValue: 8
+  maxValue: 15
+  requirementName: {fileID: 11400000, guid: 2695a13c79bd90a41b3af9c6cac4dc61, type: 2}

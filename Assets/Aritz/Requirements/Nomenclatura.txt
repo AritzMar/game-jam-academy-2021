@@ -1,0 +1,5 @@
+Para crear Requirements:
+	assets > create > GJ > Requirements > :
+		1) Primero crear en nombre con "Name". nombre objecto: name_Skill_name
+		2) Crear el "Requirement". Notacion en Mayusculas: SKILL_NAME
+		3) "Requirement Container" es quien se encarga de almacenar todos los requirements
