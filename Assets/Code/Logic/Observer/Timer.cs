@@ -4,24 +4,38 @@ using UnityEngine;
 
 public class Timer : MonoBehaviour
 {
-    public Action OnTimerStarted;
-    public Action OnTimerIsCritical;
-    public Action OnTimerEnded;
+
+    public static Action OnTimerStarted;
+    public static Action OnTimerIsCritical;
+    public static Action OnTimerEnded;
+
+    [SerializeField] float timeToDo;
 
     private IEnumerator TimeCorroutine;
 
     public void StartTimer()
     {
         TimeCorroutine = RunTime();
+        StartCoroutine(TimeCorroutine);
     }
 
     private IEnumerator RunTime()
     {
+        float reducedTime = timeToDo / 2f;
+
         if(OnTimerStarted != null)
-            OnTimerIsCritical();
+            OnTimerStarted();
+
+        yield return new WaitForSeconds(reducedTime);
 
         if(OnTimerIsCritical != null)
             OnTimerIsCritical();
+
+        while(reducedTime >= float.Epsilon)
+        {
+            reducedTime -= Time.deltaTime;
+            yield return null;
+        }
 
         if(OnTimerEnded != null)
             OnTimerEnded();

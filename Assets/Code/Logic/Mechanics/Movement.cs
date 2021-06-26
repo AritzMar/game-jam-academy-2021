@@ -15,6 +15,16 @@ namespace Chtulhitos.Mechanics
             private set { speed = value; }
         }
 
+        private void Init()
+        {
+            Debug.Log("Estoy siendo ejecutado por PlayableBehaviour");
+        }
+
+        private void Waiting()
+        {
+            Debug.Log("Estoy esperando tambien..");
+        }
+
         private void Start() 
         {
             agent.speed = Speed;
