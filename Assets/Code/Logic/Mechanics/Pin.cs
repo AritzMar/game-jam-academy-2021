@@ -4,9 +4,10 @@ public class Pin : MonoBehaviour
 {
     private GameObject shadowPin;
 
-    private void Start() 
+    private void Awake() 
     {
         shadowPin = new GameObject();
+        shadowPin.name = "LastPointPlayer";
     }
 
     public Transform CloneLocation()

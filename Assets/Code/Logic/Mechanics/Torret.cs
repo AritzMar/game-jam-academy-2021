@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using DG.Tweening;
 
 namespace Chtulhitos.Mechanics
 {
@@ -7,9 +8,14 @@ namespace Chtulhitos.Mechanics
     {
         public Transform TorretHead;
         public Transform TorretScope;
-        public Transform TargetToFollow;
-
         public GameObject BulletPrefab;
+
+        public Material LaserMaterial;
+        public float RechargingDuration;
+
+        private LineRenderer laserLine;
+        private Transform targetToFollow;
+        private bool recharging = false;
 
         private void OnEnable() 
         {
@@ -20,6 +26,11 @@ namespace Chtulhitos.Mechanics
         private void Start() 
         {
             StartCoroutine(PerformSeekAndDestroy());
+                                
+            laserLine = gameObject.AddComponent<LineRenderer>();
+            laserLine.startWidth = 0.1f;
+            laserLine.endWidth = 0.1f;
+            laserLine.material = LaserMaterial;
         }
 
         private void OnDisable() 
@@ -28,24 +39,51 @@ namespace Chtulhitos.Mechanics
             MinigameFloor.OnPinPositionIdle -= Shoot;
         }
 
-        private Transform SetTargetToFollow(Transform position) => TargetToFollow = position;
+        private void SetTargetToFollow(Transform position)
+        {
+            targetToFollow = position;
+            Vector3[] laserDirection = new Vector3[]{TorretScope.position, targetToFollow.position};
+            laserLine.SetPositions(laserDirection);
+            laserLine.useWorldSpace = true;
+        }
+
         private void Shoot()
         {
-            Debug.Log("PAWN!");
-            Bullet tempBullet = Instantiate(BulletPrefab, TorretScope.position, Quaternion.identity).GetComponent<Bullet>();
-            Vector3 signalPosition = TargetToFollow.position;
-            tempBullet.SetPositionToGo(signalPosition);
+            if(recharging)
+                return;
+
+            recharging = true;
+
+            StartCoroutine(PerformShoot());
         }
 
         private IEnumerator PerformSeekAndDestroy()
         {
-            yield return new WaitUntil(() => TargetToFollow != null);
+            yield return new WaitUntil(() => targetToFollow != null);
 
             while(true)
             {
-                TorretHead.LookAt(TargetToFollow);
+                TorretHead.LookAt(targetToFollow);
+                laserLine.SetPosition(1, targetToFollow.position);
                 yield return null;
             }
+        }
+
+        private IEnumerator PerformShoot()
+        {
+            float halfRechargingDuration = RechargingDuration / 2;
+
+            var sequence = DOTween.Sequence();
+
+            LaserMaterial.DOColor(Color.red, halfRechargingDuration);
+
+            yield return new WaitForSeconds(halfRechargingDuration);
+
+            LaserMaterial.DOColor(Color.blue, halfRechargingDuration);
+
+            yield return new WaitForSeconds(halfRechargingDuration);
+
+            recharging = false;
         }
     }
 }

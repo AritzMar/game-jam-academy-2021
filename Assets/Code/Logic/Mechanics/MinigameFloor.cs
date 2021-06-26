@@ -4,7 +4,7 @@ using System;
 
 public class MinigameFloor : MonoBehaviour
 {
-    public static Func<Transform, Transform> OnPinPositionIsPlaying;
+    public static Action<Transform> OnPinPositionIsPlaying;
     public static Action OnPinPositionIdle;
 
     [SerializeField] private Pin pinTarget;
