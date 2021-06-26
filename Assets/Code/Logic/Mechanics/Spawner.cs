@@ -10,8 +10,6 @@ namespace Chtulhitos.Mechanics
         public Transform FinishTarget;
         public GameObject ObjectToSpawn;
 
-
-
         private IEnumerator spawnCorrutine;
 
         private void Start()

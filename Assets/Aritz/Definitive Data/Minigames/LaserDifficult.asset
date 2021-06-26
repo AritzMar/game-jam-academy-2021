@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44123809def16144cad1e98577c90c4d, type: 3}
   m_Name: LaserDifficult
   m_EditorClassIdentifier: 
-  initialValue: 0
+  initialValue: 1
