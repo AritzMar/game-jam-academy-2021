@@ -43,8 +43,7 @@ public class MusicContainer : MonoBehaviour
             Debug.LogError("Music container random mode and Stop on last track. Disable random mode.");
         }
     }
-
-    private void Update()
+	private void Update()
     {
         if (!isPlaying)
             return;
