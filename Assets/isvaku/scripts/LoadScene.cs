@@ -8,6 +8,14 @@ public class LoadScene : MonoBehaviour
     // Start is called before the first frame update
     public Animator animFace;
     public string scene;
+    public void LoadJugarScene()
+	{
+        SceneManager.LoadScene("Game");
+	}
+    public void LoadCredits()
+    {
+        SceneManager.LoadScene("Credits");
+    }
     public void LoadTheScene()
     {
         
