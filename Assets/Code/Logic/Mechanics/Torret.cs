@@ -69,6 +69,7 @@ namespace Chtulhitos.Mechanics
             recharging = true;
 
             StartCoroutine(PerformShoot());
+            PlaySoundResources.PlaySound_String("GJA_Laser_Shot");
         }
 
         private IEnumerator PerformSeekAndDestroy()

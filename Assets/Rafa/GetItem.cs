@@ -22,6 +22,8 @@ public class GetItem : MonoBehaviour
 	private void ItsFinished()
 	{
 		Destroy(this.gameObject);
+		PlaySoundResources.PlaySound_String("GJA_Drop_Card_1");
+
 	}
 	private void OnTriggerEnter(Collider other)
 	{
@@ -35,7 +37,7 @@ public class GetItem : MonoBehaviour
 	{
 		if (!CheckIfAvailableSlot(collider.gameObject))
 			return;
-
+		PlaySoundResources.PlaySound_String("GJA_Pick_Card_01");
 		this.transform.position = collider.transform.position;
 		this.transform.parent = collider.transform;
 		transform.position += offset ;

@@ -47,6 +47,7 @@ namespace Chtulhitos.Mechanics
             Vector3 startPointLocation = new Vector3(startPoint.position.x, transform.position.y, startPoint.position.z);
             transform.position = startPointLocation;
             agent.destination = startPointLocation;
+            PlaySoundResources.PlaySound_String("GJA_Fail_4");
         }
 
         public void Hit(int damage)

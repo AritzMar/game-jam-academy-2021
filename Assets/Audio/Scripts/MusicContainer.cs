@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MusicContainer : MonoBehaviour
 {
+    public bool playOnStart;
     [Header("METRONOME")]
     public int bpm;
     [Range(1, 4)]
@@ -46,8 +47,12 @@ public class MusicContainer : MonoBehaviour
     {
         Get_DataValues();
     }
-
-    private void Update()
+	private void Start()
+	{
+        if (playOnStart)
+            StartMetronome();
+	}
+	private void Update()
     {
         if (!isPlaying)
             return;
