@@ -20,8 +20,6 @@ public class Game : MonoBehaviour
 
         yield return StartCoroutine(RoundLoop());
 
-        Debug.Log("Fin del juego");
-
         PerformState("Finished");
     }
 
@@ -39,11 +37,8 @@ public class Game : MonoBehaviour
 
             round.CurrentRound++;
 
-            yield return new WaitForSeconds(timeForBreak.CurrentValue);
+            yield return new WaitForSeconds(1);
         }
-
-        PerformState("Finished");
-        Debug.Log("Fin del juego");
     }
 
     public void PerformState(string state)

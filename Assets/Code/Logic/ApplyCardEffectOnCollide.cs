@@ -1,10 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
+using UnityEngine.Events;
 using UnityEngine;
 
 public class ApplyCardEffectOnCollide : MonoBehaviour
 {
 	[SerializeField] private SelectedCardScriptable selectedCard;
+	[SerializeField] private UnityEvent onEnteredWithCard;
 
 	private void OnTriggerEnter(Collider other)
 	{
@@ -12,6 +12,7 @@ public class ApplyCardEffectOnCollide : MonoBehaviour
 		{
 			selectedCard.SelectedCard.Effect();
 			selectedCard.SelectedCard = null;
+			onEnteredWithCard?.Invoke();
 		}
 	}
 }
