@@ -4816,6 +4816,8 @@ GameObject:
   - component: {fileID: 4641772654190217429}
   - component: {fileID: 7461924632941149215}
   - component: {fileID: 6608079400073560085}
+  - component: {fileID: 123258449823263233}
+  - component: {fileID: -1256372513469898893}
   m_Layer: 0
   m_Name: Experiencia_Prefab
   m_TagString: Untagged
@@ -4904,3 +4906,30 @@ MonoBehaviour:
   index: 0
   selectedCard: {fileID: 11400000, guid: e9c28ecd78f96e24eba9d4a128a8b888, type: 2}
   visibleCards: {fileID: 11400000, guid: 7f98f224e0c1da34991122f3edb13f88, type: 2}
+--- !u!65 &123258449823263233
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8975366860243344842}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.17976156, y: 0.14980638, z: 0.15881509}
+  m_Center: {x: -0.032325815, y: 0.003868282, z: 0.025037907}
+--- !u!114 &-1256372513469898893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8975366860243344842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e92b00b40eaf20842970ec0961eeb273, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offset: {x: 0, y: 2, z: 0}
+  xFinishCoordinate: -19

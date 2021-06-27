@@ -9,7 +9,6 @@ public class DeckController : MonoBehaviour
 	public System.Action OnSecondCardChange;
 	public System.Action OnThirdCardChange;
 
-
 	private void Start()
 	{
 		Shuffle();
