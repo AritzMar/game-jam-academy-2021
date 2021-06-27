@@ -9,7 +9,9 @@ public class Timer : MonoBehaviour
     public static Action OnTimerIsCritical;
     public static Action OnTimerEnded;
 
-    [SerializeField] float timeToDo;
+    [SerializeField] private StateListener stateListener;
+
+    [SerializeField] private IntVariable timeToDo;
 
     private IEnumerator TimeCorroutine;
 
@@ -19,9 +21,15 @@ public class Timer : MonoBehaviour
         StartCoroutine(TimeCorroutine);
     }
 
+    public void StopTimer()
+    {
+        StartCoroutine(TimeCorroutine);
+        timeToDo.ResetCurrentToInitial();
+    }
+
     private IEnumerator RunTime()
     {
-        float reducedTime = timeToDo / 2f;
+        float reducedTime = timeToDo.CurrentValue / 2f;
 
         if(OnTimerStarted != null)
             OnTimerStarted();

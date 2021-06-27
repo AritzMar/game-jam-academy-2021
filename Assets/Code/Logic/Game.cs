@@ -1,7 +1,25 @@
 using UnityEngine;
+using System;
 
-// STATE PATTERN
 public class Game : MonoBehaviour
 {
-    public GameState[] GameStates;
+    [SerializeField] private GameStates gameStates;
+
+    // private void OnEnable()
+    // {
+    //     Timer.OnTimerStarted += () => SetGameState("Waiting");
+    //     Timer.OnTimerEnded +=   () => SetGameState("Finished");
+    // }
+
+    // private void OnDisable() 
+    // {
+    //     Timer.OnTimerStarted -= () => SetGameState("Waiting");
+    //     Timer.OnTimerEnded -= () => SetGameState("Finished");
+    // }
+
+    public void PerformState(string state)
+    {
+        GameState tempLogic = gameStates.ObtainEventWithLogic(state);
+        tempLogic?.Raise(state);
+    }
 }

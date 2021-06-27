@@ -7,22 +7,17 @@ namespace Chtulhitos.Mechanics
     public class Movement : MonoBehaviour
     {
         public NavMeshAgent agent;
-        public LayerMask layerForRay;
+        [SerializeField] private Transform startPoint;
+        [SerializeField] private StateListener stateListener;
+
+        private bool canMove = false;
+        public void ChangeMoveCondition(bool condition) => canMove = condition;
+
         [SerializeField] private int speed;
         public int Speed
         {
             get { return speed; }
             private set { speed = value; }
-        }
-
-        private void Init()
-        {
-            Debug.Log("Estoy siendo ejecutado por PlayableBehaviour");
-        }
-
-        private void Waiting()
-        {
-            Debug.Log("Estoy esperando tambien..");
         }
 
         private void Start() 
@@ -32,7 +27,8 @@ namespace Chtulhitos.Mechanics
 
         void Update()
         {
-            MoveWithAgentWithARay();
+            if(canMove)
+                MoveWithAgentWithARay();
         }
 
         private void MoveWithAgentWithARay()
@@ -42,6 +38,13 @@ namespace Chtulhitos.Mechanics
             {
                 agent.destination = raycastHit.point;
             }
+        }
+
+        public void TransportToStartPoint()
+        {
+            Vector3 startPointLocation = new Vector3(startPoint.position.x, transform.position.y, startPoint.position.z);
+            transform.position = startPointLocation;
+            agent.destination = startPointLocation;
         }
     }
 }

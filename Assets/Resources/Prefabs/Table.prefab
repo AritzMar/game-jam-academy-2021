@@ -203,7 +203,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1105999601888338964}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c9b5dd99b3c4f6d449b5e2afaffa7cee, type: 3}
   m_Name: 
@@ -306,7 +306,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2323236171718089677}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c9b5dd99b3c4f6d449b5e2afaffa7cee, type: 3}
   m_Name: 
@@ -451,6 +451,36 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &7785469130965649513
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7247851722464660579}
+  m_Layer: 0
+  m_Name: StartPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7247851722464660579
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7785469130965649513}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8779000600563306242}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7835370121992703051
 GameObject:
   m_ObjectHideFlags: 0
@@ -598,6 +628,7 @@ Transform:
   - {fileID: 5721109125002409865}
   - {fileID: 9106278400677100065}
   - {fileID: 9106278401020532856}
+  - {fileID: 7247851722464660579}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -178.31, z: 0}
@@ -736,6 +767,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9106278400677100065}
   - component: {fileID: 9106278400677100064}
+  - component: {fileID: 9106278399629011827}
   m_Layer: 0
   m_Name: Spawn1
   m_TagString: Untagged
@@ -774,6 +806,53 @@ MonoBehaviour:
   SpawnSize: 10
   FinishTarget: {fileID: 9106278401020532856}
   ObjectToSpawn: {fileID: 3686447722283403881, guid: e9d0c7378c7e56a4da826a307955649c, type: 3}
+  stateListener: {fileID: 0}
+--- !u!114 &9106278399629011827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9106278400677100066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 559d78ab896c4b04aa6e0f29dcb82d51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StatesEvents:
+  - State: Playing
+    Events:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 9106278400677100064}
+          m_TargetAssemblyTypeName: Chtulhitos.Mechanics.Spawner, Assembly-CSharp
+          m_MethodName: StartSpawn
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - State: EndTurn
+    Events:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 9106278400677100064}
+          m_TargetAssemblyTypeName: Chtulhitos.Mechanics.Spawner, Assembly-CSharp
+          m_MethodName: StopSpawn
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  GameStates: {fileID: 11400000, guid: 0c42a527ec62e184e9d35c441b96c8f2, type: 2}
 --- !u!1 &9106278400708610517
 GameObject:
   m_ObjectHideFlags: 0
@@ -879,6 +958,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9106278401020532856}
   - component: {fileID: 9106278401020532855}
+  - component: {fileID: 9106278399629011826}
   m_Layer: 0
   m_Name: Spawn2
   m_TagString: Untagged
@@ -917,6 +997,53 @@ MonoBehaviour:
   SpawnSize: 10
   FinishTarget: {fileID: 9106278400677100065}
   ObjectToSpawn: {fileID: 3686447722283403881, guid: e9d0c7378c7e56a4da826a307955649c, type: 3}
+  stateListener: {fileID: 0}
+--- !u!114 &9106278399629011826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9106278401020532857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 559d78ab896c4b04aa6e0f29dcb82d51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StatesEvents:
+  - State: Playing
+    Events:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 9106278401020532855}
+          m_TargetAssemblyTypeName: Chtulhitos.Mechanics.Spawner, Assembly-CSharp
+          m_MethodName: StartSpawn
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - State: EndTurn
+    Events:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 9106278401020532855}
+          m_TargetAssemblyTypeName: Chtulhitos.Mechanics.Spawner, Assembly-CSharp
+          m_MethodName: StopSpawn
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  GameStates: {fileID: 11400000, guid: 0c42a527ec62e184e9d35c441b96c8f2, type: 2}
 --- !u!1 &9106278401378641530
 GameObject:
   m_ObjectHideFlags: 0

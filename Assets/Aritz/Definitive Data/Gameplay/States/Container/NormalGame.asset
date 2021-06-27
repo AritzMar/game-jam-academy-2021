@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38d4cebf70c2ec64dbeb398378824c32, type: 3}
+  m_Name: NormalGame
+  m_EditorClassIdentifier: 
+  gameLogics:
+  - Name: Starting
+    Delegate: {fileID: 11400000, guid: 578591ec639f6a345b7a784c8b387a7e, type: 2}
+  - Name: Waiting
+    Delegate: {fileID: 11400000, guid: 96762a10f00528e45bf4d8c397c51a98, type: 2}
+  - Name: Playing
+    Delegate: {fileID: 11400000, guid: ff79dc20639ae0b48ad4cde2900934da, type: 2}
+  - Name: EndTurn
+    Delegate: {fileID: 11400000, guid: ce32a10e46a7e7b4fa0f9db2582dd927, type: 2}
+  - Name: Finished
+    Delegate: {fileID: 11400000, guid: a831d5dfe7bb1a54386e824e4c501f87, type: 2}
