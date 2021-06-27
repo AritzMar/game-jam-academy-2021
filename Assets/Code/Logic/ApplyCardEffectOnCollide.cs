@@ -11,6 +11,7 @@ public class ApplyCardEffectOnCollide : MonoBehaviour
 		if(selectedCard.SelectedCard != null)
 		{
 			selectedCard.SelectedCard.Effect();
+			selectedCard.SelectedCard = null;
 		}
 	}
 }

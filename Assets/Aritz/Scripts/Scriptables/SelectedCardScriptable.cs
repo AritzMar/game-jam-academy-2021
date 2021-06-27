@@ -5,4 +5,10 @@ public class SelectedCardScriptable : ScriptableObject
 {
 	public int Position { get; set; }
 	public CardScriptable SelectedCard { get; set; }
+
+	private void OnEnable()
+	{
+		SelectedCard = null;
+	}
+
 }
