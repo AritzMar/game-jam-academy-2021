@@ -3,10 +3,10 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "new FloatVariable", menuName = "GJ/Variables/Float Variable", order = 0)]
 public class FloatVariable : ScriptableObject 
 {
-	[SerializeField] private int initialValue;
-	private int currentValue;
+	[SerializeField] private float initialValue;
+	private float currentValue;
 
-	public int CurrentValue
+	public float CurrentValue
 	{
 		get => currentValue;
 		set

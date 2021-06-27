@@ -5,7 +5,7 @@ namespace Chtulhitos.Mechanics
 {
     public class Spawner : MonoBehaviour
     {
-        public float SpawnSpeed;
+        public FloatVariable SpawnSpeed;
         public float SpawnSize;
         public Transform FinishTarget;
         public GameObject ObjectToSpawn;
@@ -38,7 +38,7 @@ namespace Chtulhitos.Mechanics
                 instanceObject.transform.SetParent(transform);
                 instanceObject.transform.localPosition = new Vector3(Random.Range(-(SpawnSize / 2f), (SpawnSize / 2f)), 0f, 0f);
 
-                yield return new WaitForSeconds(SpawnSpeed);
+                yield return new WaitForSeconds(SpawnSpeed.CurrentValue);
             }                                           
         }
     }
