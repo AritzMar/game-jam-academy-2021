@@ -10,6 +10,7 @@ namespace Chtulhitos.Mechanics
         [SerializeField] private Transform startPoint;
         [SerializeField] private ParticleSystem deadEffect;
         [SerializeField] private DeckScriptable visibleCards;
+        [SerializeField] private SelectedCardScriptable selectedCard;
 
         private bool canMove = false;
         public void ChangeMoveCondition(bool condition) => canMove = condition;
@@ -47,9 +48,12 @@ namespace Chtulhitos.Mechanics
             transform.position = startPointLocation;
             agent.destination = startPointLocation;
         }
+
         public void Hit(int damage)
         {
             // FALTA QUITAR LA "VIDA"
+            DeactivateHeadGO();
+            selectedCard = null;
             deadEffect.transform.position = transform.position;
             deadEffect.Emit(10);
             transform.position = startPoint.position;

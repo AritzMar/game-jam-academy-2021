@@ -10,7 +10,7 @@ public class RoundUI : MonoBehaviour
 
 	 private void Start() 
 	{
-		ChangeRoundText(RoundValue.CurrentRound);
+		ChangeRoundText(RoundValue.CurrentRound + 1);
 	}
 
 	private void OnEnable() 

@@ -89,8 +89,8 @@ namespace Chtulhitos.Mechanics
             float halfRechargingDuration = RechargingDuration / 2;
 
             LaserMaterial.DOColor(laserRedColor, halfRechargingDuration);
-            var mov = targetToFollow.GetComponent<Movement>();
 
+            var mov = targetToFollow.GetComponent<Movement>();
             mov.Hit(turretDamage.CurrentValue);
             
             yield return new WaitForSeconds(halfRechargingDuration);
