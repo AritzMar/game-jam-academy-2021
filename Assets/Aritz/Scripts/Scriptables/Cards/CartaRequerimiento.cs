@@ -11,6 +11,11 @@ public class CartaRequerimiento : CardScriptable
 	public int OpValue { get => opValue;}
 	public RequirementTypeScriptable RequirementName { get => requirementName;}
 
+	private void OnEnable()
+	{
+		MyCardType = CardType.RequirementEffect;
+	}
+
 	public override void Effect()
 	{
 		RequirementScriptable requirement = playerContainer.CompareRequirementName(requirementName.name);

@@ -9,6 +9,11 @@ public class CartaControl : CardScriptable
 	public ControlType ControlType { get => controlType; set => controlType = value; }
 	public IntVariable TurnTime { get => turnTime; set => turnTime = value; }
 
+	private void OnEnable()
+	{
+		MyCardType = CardType.Control;
+	}
+
 	public override void Effect()
 	{
 		if (controlType == ControlType.ClampAll)

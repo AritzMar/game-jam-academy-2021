@@ -20,16 +20,17 @@ public class DeckController : MonoBehaviour
 		for (int i = 0; i < 3; i++)
 		{
 			visibleCards.Deck[i] = deck.GetNextCard();
+
 			switch (i)
 			{
 				case 0:
-					OnFirstCardChange();
+					OnFirstCardChange?.Invoke();
 					break;
 				case 1:
-					OnSecondCardChange();
+					OnSecondCardChange?.Invoke();
 					break;
 				case 2:
-					OnThirdCardChange();
+					OnThirdCardChange?.Invoke();
 					break;
 			}
 		}

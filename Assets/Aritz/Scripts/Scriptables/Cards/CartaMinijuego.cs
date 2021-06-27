@@ -24,6 +24,12 @@ public class CartaMinijuego : CardScriptable
 	[Header("VARIABLE DEL MINIJUEGO AFECTADA")]
 	[SerializeField] private IntVariable miniGameDifficult;
 
+
+	private void OnEnable()
+	{
+		MyCardType = CardType.MiniGame;
+	}
+
 	private void Awake()
 	{
 		goodName = requirementNames[Random.Range(0, requirementNames.Count)];
