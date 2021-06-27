@@ -9,14 +9,6 @@ public class DeckScriptable : ScriptableObject
 
 	public List<CardScriptable> Deck { get => deck; set => deck = value; }
 
-	private void OnEnable()
-	{
-		for (int i = 0; i < deck.Capacity; i++)
-			deck[i] = null;
-		currentPosition = 0;
-
-	}
-
 	public void Shuffle()
 	{
 		var count = Deck.Count;

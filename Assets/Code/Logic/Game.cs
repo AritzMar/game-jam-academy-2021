@@ -28,9 +28,7 @@ public class Game : MonoBehaviour
     private IEnumerator RoundLoop()
     {
         if(round.CurrentRound == round.MaxRound)
-        {
             yield break;
-        }
 
         while(round.CurrentRound < round.MaxRound)
         {
@@ -43,6 +41,9 @@ public class Game : MonoBehaviour
 
             yield return new WaitForSeconds(timeForBreak.CurrentValue);
         }
+
+        PerformState("Finished");
+        Debug.Log("Fin del juego");
     }
 
     public void PerformState(string state)
