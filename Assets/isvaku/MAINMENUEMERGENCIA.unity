@@ -167,7 +167,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animFace: {fileID: 225193087}
-  scene: Scenes/Games
+  scene: Scenes/Game
 --- !u!1 &204915944
 GameObject:
   m_ObjectHideFlags: 0
@@ -434,7 +434,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animFace: {fileID: 225193087}
-  scene: isvaku/Credits
+  scene: 1
 --- !u!4 &296482026
 Transform:
   m_ObjectHideFlags: 0

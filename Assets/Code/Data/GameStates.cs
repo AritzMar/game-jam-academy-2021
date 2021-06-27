@@ -9,15 +9,15 @@ public class GameStates : ScriptableObject
     {
         public GameState Delegate;
     }
-    
     [SerializeField] private GameLogic[] gameLogics;
+    
     
     public GameState ObtainEventWithLogic(string State)
     {
         GameLogic logicToObtain = Array.Find(gameLogics, l => l.Delegate.name == State);
         if(logicToObtain != null)
             return logicToObtain.Delegate;
-        else
+		else
             return null;
     }
 

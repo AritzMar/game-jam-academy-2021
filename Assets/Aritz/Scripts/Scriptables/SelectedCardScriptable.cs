@@ -11,4 +11,5 @@ public class SelectedCardScriptable : ScriptableObject
 		SelectedCard = null;
 	}
 
+	public void Reset() => SelectedCard = null;
 }

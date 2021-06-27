@@ -24,11 +24,15 @@ namespace Chtulhitos.Mechanics
 
         private void Start() 
         {
-            agent.speed = Speed;
+            //agent.speed = Speed;
+            //agent.angularSpeed = 360 * Mathf.Deg2Rad * speed;
+            //agent.autoBraking = true;
+            //agent.acceleration = 1;
         }
 
         void Update()
         {
+            agent.speed = Mathf.Clamp(agent.speed, 0, speed);
             if(canMove)
                 MoveWithAgentWithARay();
         }
@@ -53,11 +57,12 @@ namespace Chtulhitos.Mechanics
         public void Hit(int damage)
         {
             // FALTA QUITAR LA "VIDA"
-            DeactivateHeadGO();
             selectedCard = null;
+            DeactivateHeadGO();
             deadEffect.transform.position = transform.position;
             deadEffect.Emit(10);
             transform.position = startPoint.position;
+            PlaySoundResources.PlaySound_String("GJA_Fail_4");
         }
 
         public void ActivateHeadGO(int cardIndex)
@@ -69,6 +74,8 @@ namespace Chtulhitos.Mechanics
                 CartaRequerimiento c = (CartaRequerimiento)card;
 
                 DeactivateHeadGO();
+                
+                Debug.Log(c.RequirementName.RequirementName);
 
                 switch (c.RequirementName.RequirementName)
                 {
@@ -84,7 +91,7 @@ namespace Chtulhitos.Mechanics
                         transform.GetChild(0).gameObject.SetActive(true);
                         break;
 
-                    case "Tech Skill":
+                    default:
                         transform.GetChild(1).gameObject.SetActive(true);
                         break;
                 }
@@ -93,7 +100,7 @@ namespace Chtulhitos.Mechanics
 
         public void DeactivateHeadGO()
 		{
-            for (int i = 0; i < transform.childCount; i++)
+            for (int i = 0; i < transform.childCount - 1; i++)
             {
                 transform.GetChild(i).gameObject.SetActive(false);
             }

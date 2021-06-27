@@ -51,7 +51,7 @@ public class CardGOUpdater : MonoBehaviour
 					meshRenderer.materials[1].mainTexture = softMat.mainTexture;
 					break;
 
-				case "Tech Skill":
+				default:
 					meshRenderer.materials[0].mainTexture = techMat.mainTexture;
 					meshRenderer.materials[1].mainTexture = techMat.mainTexture;
 					break;

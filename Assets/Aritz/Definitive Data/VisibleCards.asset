@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: VisibleCards
   m_EditorClassIdentifier: 
   deck:
+  - {fileID: 11400000, guid: be4a66f0acfdc694ea919b21cebd4f1d, type: 2}
   - {fileID: 11400000, guid: 1400c15f792f8f84a8e37a23af69d45f, type: 2}
-  - {fileID: 11400000, guid: 8535eadd2e5b4f5409033c91a5cbf76a, type: 2}
-  - {fileID: 11400000, guid: 4a8f6ab1118cb9c4fbf407b5bc6e2cee, type: 2}
+  - {fileID: 11400000, guid: ac0666b3a3c7a704597fa77d708e7357, type: 2}

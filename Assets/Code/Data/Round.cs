@@ -13,11 +13,10 @@ public class Round : ScriptableObject
 		set
 		{
 			currentRound = Mathf.Clamp(value, Vector3Int.zero.x, MaxRound);
-			OnRoundChange?.Invoke(currentRound + 1);
+			OnRoundChange?.Invoke(currentRound);
 		}
 	}
 
 	private void OnEnable() => CurrentRound = 0;
-	public void RoundUp() => CurrentRound += 1;
 	public void ResetValue() => currentRound = 0;
 }

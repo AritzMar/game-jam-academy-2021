@@ -10,6 +10,7 @@ public class Game : MonoBehaviour
 
     private IEnumerator Start()
     {
+        
         PerformState("Starting");
 
         yield return new WaitUntil(() => flow.GetFlowModifierByName("Tutorial").Performed);
@@ -37,7 +38,9 @@ public class Game : MonoBehaviour
 
             round.CurrentRound++;
 
-            yield return new WaitForSeconds(1);
+            PerformState("Waiting");
+            yield return new WaitUntil(() => flow.GetFlowModifierByName("Answers").Performed);
+
         }
     }
 
