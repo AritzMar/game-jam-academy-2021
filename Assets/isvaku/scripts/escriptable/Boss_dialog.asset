@@ -1,0 +1,82 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebd52ab38794ec84e83ad89cb66e9682, type: 3}
+  m_Name: Boss_dialog
+  m_EditorClassIdentifier: 
+  PersonSqpeaking: Boss
+  conditions:
+  - Situation: Bad
+    Dialogs:
+    - "\xBFNo huele un poco raro aqu\xED?"
+    - "He visto gente m\xE1s r\xE1pida en un asilo de ancianos"
+    - "\xBFEstas nervioso?"
+    - "\xBFMe entiendes?"
+    - Hay mucha gente en la cola del paro
+    - "\xA1Mirame cuando te hablo!"
+    - "\xBFNecesitas el dinero de verdad?"
+    - Las palabras se las lleva el viento como tu curriculum
+    - "\xA1INCOMPETENTE!"
+    - "\xBFQue estas haciendo?"
+    - '!FALTA PORFOLIO!'
+    - '!DEBES MEJORAR!'
+    - "Si no me haces caso ver\xE1s"
+    - "\xBFMe estas mirando a mi o al infinito?"
+    - "\xBFNo puedes hacerlo mejor?"
+    - "\xBFDisfrutas de las vistas?"
+    - "\"Si no te gusta hay m\xE1s gente esperando en la cola del paro"
+    - "\xBFQue problema tienes?"
+    - '"!No me hagas perder el tiempo!'
+    - "\xBFQue hacemos aqu\xED?"
+  - Situation: Good
+    Dialogs:
+    - "\xBFPuedes contarme m\xE1s?"
+    - "Sigue as\xED, vas muy bien"
+    - Eso esta muy bien
+    - MUY BIEN
+    - Veo que has practicado
+    - Que labia tienes
+    - Interesante, sigue
+    - MOLT BE XIQUET
+    - Me gusta tu forma de pensar
+    - Me gusta tu forma de pensar
+    - Las entrevistas como estas, dan gusto
+    - Vamos con la siguiente
+    - Si, suena bien
+    - "\xA1Que buen profesional!"
+    - Las personas como tu faltan
+    - Que amable por tu parte
+    - '!Que buen trabajo!'
+    - Se nota tu valentia
+    - '!Pero que productivo!'
+    - "S\xED, que interesante"
+  - Situation: Answer
+    Dialogs:
+    - "\xBFTienes experiencia en el sector?"
+    - "\xBFQue puedes aportar a esta empresa?"
+    - Hablame de tu ultimo puesto
+    - "\xBFQue esperas de esta empresa?"
+    - "\xBFQue tecnolog\xEDas controlas?"
+    - "\xBFQue tal trabajas en equipo?"
+    - "\xBFCon que animal te identificas?"
+    - "\xBFQue puedes hacer por la empresa?"
+    - "\xBFCon que insecto te identificas?"
+    - "Dime tus puntos d\xE9biles"
+    - "\xBFComo puedes ayudar a esta empresa?"
+    - "\xBFPor que te gusta nuestra empresa?"
+    - "\xBFQue habilidades blandas tienes?"
+    - "\xBFQue habilidades tienes?"
+    - "\xBFComo podemos ayudarte profesionalmente?"
+    - "\xBFQue formaci\xF3n te gustaria recibir?"
+    - Hablame de tus aptitudes
+    - Cuentame tu historia
+    - "\xBFPodrias resumir en 20 palabras tu vida laboral?"
+    - "Si un idiota habla en el bosque \xBFhace ruido?"

@@ -9,18 +9,18 @@ public class CardEffectPlayerScoreTest : MonoBehaviour
 
 	private void OnEnable()
 	{
-		scoreScriptable.OnValueChange += () => ChangeValue();
+		scoreScriptable.OnValueChange += (a) => ChangeValue(a);
 	}
 
 	private void OnDisable()
 	{
-		scoreScriptable.OnValueChange -= () => ChangeValue();
+		scoreScriptable.OnValueChange -= (a) => ChangeValue(a);
 	}
 
 	private void Start()
 	{
-		ChangeValue();
+		ChangeValue(1);
 	}
 
-	private void ChangeValue() => tmproUI.text = scoreScriptable.CurrentValue.ToString();
+	private void ChangeValue(int a) => tmproUI.text = scoreScriptable.CurrentValue.ToString();
 }

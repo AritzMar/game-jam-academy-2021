@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -13,39 +11,37 @@ public class Dialogos : MonoBehaviour
         int fraseNum = Random.Range(1, 20);
         string frase = "";
 
-
-
         switch (fraseNum)
         {
             case 1:
-                frase = "¿No huele un poco raro aquí?";
+                frase = "Â¿No huele un poco raro aquÃ­?";
                 break;
             case 2:
-                frase = "He visto gente más rápida en un asilo de ancianos";
+                frase = "He visto gente mÃ¡s rÃ¡pida en un asilo de ancianos";
                 break;
             case 3:
-                frase = "¿Estas nervioso?";
+                frase = "Â¿Estas nervioso?";
                 break;
             case 4:
-                frase = "¿Me entiendes?";
+                frase = "Â¿Me entiendes?";
                 break;
             case 5:
-                frase = "¿Tienes experiencia en un puesto similar?";
+                frase = "Â¿Tienes experiencia en un puesto similar?";
                 break;
             case 6:
-                frase = "¡Mirame cuando te hablo!";
+                frase = "Â¡Mirame cuando te hablo!";
                 break;
             case 7:
-                frase = "¿Necesitas el dinero de verdad?";
+                frase = "Â¿Necesitas el dinero de verdad?";
                 break;
             case 8:
                 frase = "Las palabras se las lleva el viento como tu curriculum";
                 break;
             case 9:
-                frase = "¡INCOMPETENTE!";
+                frase = "Â¡INCOMPETENTE!";
                 break;
             case 10:
-                frase = "¿Que estas haciendo?";
+                frase = "Â¿Que estas haciendo?";
                 break;
             case 11:
                 frase = "!FALTA PORFOLIO!";
@@ -54,30 +50,29 @@ public class Dialogos : MonoBehaviour
                 frase = "!DEBES MEJORAR!";
                 break;
             case 13:
-                frase = "Si no me haces caso verás";
+                frase = "Si no me haces caso verÃ¡s";
                 break;
             case 14:
-                frase = "¿Me estas mirando a mi o al infinito?";
+                frase = "Â¿Me estas mirando a mi o al infinito?";
                 break;
             case 15:
-                frase = "¿No puedes hacerlo mejor?";
+                frase = "Â¿No puedes hacerlo mejor?";
                 break;
             case 16:
-                frase = "¿Disfrutas de las vistas?";
+                frase = "Â¿Disfrutas de las vistas?";
                 break;
             case 17:
-                frase = "Si no te gusta hay más gente esperando en la cola del paro";
+                frase = "Si no te gusta hay mÃ¡s gente esperando en la cola del paro";
                 break;
             case 18:
-                frase = "¿Que problema tienes?";
+                frase = "Â¿Que problema tienes?";
                 break;
             case 19:
                 frase = "!No me hagas perder el tiempo!";
                 break;
             case 20:
-                frase = "¿Que hacemos aquí?";
+                frase = "Â¿Que hacemos aquÃ­?";
                 break;
-
         }
 
 
@@ -85,8 +80,7 @@ public class Dialogos : MonoBehaviour
         m_TextComponent.text = frase;
 
     }
-    private void Start()
-    {
+
 
         void EmployerSpeakLost()
         {
@@ -108,19 +102,19 @@ public class Dialogos : MonoBehaviour
                     frase = "No se que responderte";
                     break;
                 case 5:
-                    frase = "¿Puedes repetir la pregunta?";
+                    frase = "Â¿Puedes repetir la pregunta?";
                     break;
                 case 6:
-                    frase = "¿Que has dicho?";
+                    frase = "Â¿Que has dicho?";
                     break;
                 case 7:
                     frase = "No puedo hacer eso";
                     break;
                 case 8:
-                    frase = "Eso no seria cortés";
+                    frase = "Eso no seria cortÃ©s";
                     break;
                 case 9:
-                    frase = "¡INCONCEDIBLE!";
+                    frase = "Â¡INCONCEDIBLE!";
                     break;
                 case 10:
                     frase = "Puedo intentarlo";
@@ -132,10 +126,10 @@ public class Dialogos : MonoBehaviour
                     frase = "Me acabo de distraer, dimelo de nuevo";
                     break;
                 case 13:
-                    frase = "Siento que no seré capaz de hacer eso";
+                    frase = "Siento que no serÃ© capaz de hacer eso";
                     break;
                 case 14:
-                    frase = "¡Cuando me tocas tocas el infinito, pero no me toques!";
+                    frase = "Â¡Cuando me tocas tocas el infinito, pero no me toques!";
                     break;
                 case 15:
                     frase = "No se de que me hablas";
@@ -144,7 +138,7 @@ public class Dialogos : MonoBehaviour
                     frase = "No entiendo esto";
                     break;
                 case 17:
-                    frase = "Creo que es un fallo más que un acierto";
+                    frase = "Creo que es un fallo mÃ¡s que un acierto";
                     break;
                 case 18:
                     frase = "No es mi P.O.T.E.N.C.I.A principal";
@@ -167,10 +161,10 @@ public class Dialogos : MonoBehaviour
             switch (fraseNum)
             {
                 case 1:
-                    frase = "¿Puedes contarme más?";
+                    frase = "Â¿Puedes contarme mÃ¡s?";
                     break;
                 case 2:
-                    frase = "Sigue así, vas muy bien";
+                    frase = "Sigue asÃ­, vas muy bien";
                     break;
                 case 3:
                     frase = "Eso esta muy bien";
@@ -206,7 +200,7 @@ public class Dialogos : MonoBehaviour
                     frase = "Si, suena bien";
                     break;
                 case 14:
-                    frase = "¡Que buen profesional!";
+                    frase = "Â¡Que buen profesional!";
                     break;
                 case 15:
                     frase = "Las personas como tu faltan";
@@ -224,7 +218,7 @@ public class Dialogos : MonoBehaviour
                     frase = "!Pero que productivo!";
                     break;
                 case 20:
-                    frase = "Sí, que interesante";
+                    frase = "SÃ­, que interesante";
                     break;
 
             }
@@ -251,7 +245,7 @@ public class Dialogos : MonoBehaviour
                     frase = "LO HARE";
                     break;
                 case 5:
-                    frase = "TE LO DEMOSTRARÉ CON MIS HECHOS";
+                    frase = "TE LO DEMOSTRARÃ‰ CON MIS HECHOS";
                     break;
                 case 6:
                     frase = "PUEDO LOGRARLO";
@@ -269,13 +263,13 @@ public class Dialogos : MonoBehaviour
                     frase = "ME GUSTA LA ZONA Y CONOZCO A MIS CLIENTES";
                     break;
                 case 11:
-                    frase = "PODRE HACERLO CON TIEMPO Y DEDICACIÓN";
+                    frase = "PODRE HACERLO CON TIEMPO Y DEDICACIÃ“N";
                     break;
                 case 12:
-                    frase = "LO HARÉ";
+                    frase = "LO HARÃ‰";
                     break;
                 case 13:
-                    frase = "CON ESFUERZO Y DEDICACIÓN TODO ES POSIBLE";
+                    frase = "CON ESFUERZO Y DEDICACIÃ“N TODO ES POSIBLE";
                     break;
                 case 14:
                     frase = "VOY HA CONSEGUIRLO";
@@ -310,52 +304,52 @@ public class Dialogos : MonoBehaviour
             switch (fraseNum)
             {
                 case 1:
-                    frase = "¿Tienes experiencia en el sector?";
+                    frase = "Â¿Tienes experiencia en el sector?";
                     break;
                 case 2:
-                    frase = "¿Que puedes aportar a esta empresa?";
+                    frase = "Â¿Que puedes aportar a esta empresa?";
                     break;
                 case 3:
                     frase = "Hablame de tu ultimo puesto";
                     break;
                 case 4:
-                    frase = "¿Que esperas de esta empresa?";
+                    frase = "Â¿Que esperas de esta empresa?";
                     break;
                 case 5:
-                    frase = "¿Que tecnologías controlas?";
+                    frase = "Â¿Que tecnologÃ­as controlas?";
                     break;
                 case 6:
-                    frase = "¿Que tal trabajas en equipo?";
+                    frase = "Â¿Que tal trabajas en equipo?";
                     break;
                 case 7:
-                    frase = "¿Con que animal te identificas?";
+                    frase = "Â¿Con que animal te identificas?";
                     break;
                 case 8:
-                    frase = "¿Que puedes hacer por la empresa?";
+                    frase = "Â¿Que puedes hacer por la empresa?";
                     break;
                 case 9:
-                    frase = "¿Con que insecto te identificas?";
+                    frase = "Â¿Con que insecto te identificas?";
                     break;
                 case 10:
-                    frase = "Dime tus puntos débiles";
+                    frase = "Dime tus puntos dÃ©biles";
                     break;
                 case 11:
-                    frase = "¿Como puedes ayudar a esta empresa?";
+                    frase = "Â¿Como puedes ayudar a esta empresa?";
                     break;
                 case 12:
-                    frase = "¿Por que te gusta nuestra empresa?";
+                    frase = "Â¿Por que te gusta nuestra empresa?";
                     break;
                 case 13:
-                    frase = "¿Que habilidades blandas tienes?";
+                    frase = "Â¿Que habilidades blandas tienes?";
                     break;
                 case 14:
-                    frase = "¿Que habilidades tienes?";
+                    frase = "Â¿Que habilidades tienes?";
                     break;
                 case 15:
-                    frase = "¿Como podemos ayudarte profesionalmente?";
+                    frase = "Â¿Como podemos ayudarte profesionalmente?";
                     break;
                 case 16:
-                    frase = "¿Que formación te gustaria recibir?";
+                    frase = "Â¿Que formaciÃ³n te gustaria recibir?";
                     break;
                 case 17:
                     frase = "Hablame de tus aptitudes";
@@ -364,15 +358,13 @@ public class Dialogos : MonoBehaviour
                     frase = "Cuentame tu historia";
                     break;
                 case 19:
-                    frase = "¿Podrias resumir en 20 palabras tu vida laboral?";
+                    frase = "Â¿Podrias resumir en 20 palabras tu vida laboral?";
                     break;
                 case 20:
-                    frase = "Si un idiota habla en el bosque ¿hace ruido?";
+                    frase = "Si un idiota habla en el bosque Â¿hace ruido?";
                     break;
 
             }
             m_TextComponent.text = frase;
         }
-
-    }
 }

@@ -8,14 +8,14 @@ namespace Chtulhitos.Mechanics
     {
         public Transform TorretHead;
         public Transform TorretScope;
-        public GameObject BulletPrefab;
-
         public Material LaserMaterial;
         public float RechargingDuration;
 
         private LineRenderer laserLine;
         private Transform targetToFollow;
-        private bool recharging = false;
+        private bool recharging = true;
+        private bool followTarget = false;
+        public void SetFollowCondition(bool condition) => followTarget = condition;
 
         private void OnEnable() 
         {
@@ -23,14 +23,16 @@ namespace Chtulhitos.Mechanics
             MinigameFloor.OnPinPositionIdle += Shoot;
         }
 
-        private void Start() 
+        public void StartFollowPlayer() 
         {
             StartCoroutine(PerformSeekAndDestroy());
-                                
-            laserLine = gameObject.AddComponent<LineRenderer>();
-            laserLine.startWidth = 0.1f;
-            laserLine.endWidth = 0.1f;
-            laserLine.material = LaserMaterial;
+            recharging = false;
+        }
+
+        public void StopFollowPlayer()
+        {
+            StopCoroutine(PerformSeekAndDestroy());
+            laserLine.SetPosition(1, TorretScope.position);
         }
 
         private void OnDisable() 
@@ -42,14 +44,20 @@ namespace Chtulhitos.Mechanics
         private void SetTargetToFollow(Transform position)
         {
             targetToFollow = position;
-            Vector3[] laserDirection = new Vector3[]{TorretScope.position, targetToFollow.position};
+
+            laserLine = gameObject.AddComponent<LineRenderer>();
+            laserLine.startWidth = 0.1f;
+            laserLine.endWidth = 0.1f;
+            laserLine.material = LaserMaterial;
+
+            Vector3[] laserDirection = new Vector3[]{TorretScope.position, TorretScope.position};
             laserLine.SetPositions(laserDirection);
             laserLine.useWorldSpace = true;
         }
 
         private void Shoot()
         {
-            if(recharging)
+            if(recharging || !followTarget)
                 return;
 
             recharging = true;
@@ -61,9 +69,10 @@ namespace Chtulhitos.Mechanics
         {
             yield return new WaitUntil(() => targetToFollow != null);
 
-            while(true)
+            while(followTarget)
             {
                 TorretHead.LookAt(targetToFollow);
+                laserLine.SetPosition(0, TorretScope.position);
                 laserLine.SetPosition(1, targetToFollow.position);
                 yield return null;
             }
@@ -73,9 +82,9 @@ namespace Chtulhitos.Mechanics
         {
             float halfRechargingDuration = RechargingDuration / 2;
 
-            var sequence = DOTween.Sequence();
-
             LaserMaterial.DOColor(Color.red, halfRechargingDuration);
+
+            targetToFollow.GetComponent<Movement>().TransportToStartPoint();
 
             yield return new WaitForSeconds(halfRechargingDuration);
 

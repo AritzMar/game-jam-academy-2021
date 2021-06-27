@@ -10,8 +10,6 @@ namespace Chtulhitos.Mechanics
         public Transform FinishTarget;
         public GameObject ObjectToSpawn;
 
-        [SerializeField] private StateListener stateListener;
-
         private IEnumerator spawnCorrutine;
 
         private void Start()

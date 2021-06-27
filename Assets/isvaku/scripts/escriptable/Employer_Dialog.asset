@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebd52ab38794ec84e83ad89cb66e9682, type: 3}
+  m_Name: Employer_Dialog
+  m_EditorClassIdentifier: 
+  PersonSqpeaking: Employer
+  conditions:
+  - Situation: Bad
+    Dialogs:
+    - Lo siento
+    - No se la respuesta
+    - No entiendo nada de eso
+    - No se que responderte
+    - "\xBFPuedes repetir la pregunta?"
+    - "\xBFQue has dicho?"
+    - No puedo hacer eso
+    - "Eso no seria cort\xE9s"
+    - "\xA1INCONCEDIBLE!"
+    - Puedo intentarlo
+    - Me falta experiencia en ese campo
+    - '"Me acabo de distraer, dimelo de nuevo'
+    - "Siento que no ser\xE9 capaz de hacer eso"
+    - "\xA1Cuando me tocas tocas el infinito, pero no me toques!"
+    - No se de que me hablas
+    - No entiendo esto
+    - "Creo que es un fallo m\xE1s que un acierto"
+    - No es mi P.O.T.E.N.C.I.A principal
+    - Esto no es sostenible
+    - No tengo una buena experiencia con mi ultimo puesto
+  - Situation: Good
+    Dialogs:
+    - PUEDO HACERLO
+    - PUEDO LOGRARLO
+    - LA RESPUESTA ES SI PUEDO
+    - LO HARE
+    - "TE LO DEMOSTRAR\xC9 CON MIS HECHOS"
+    - PUEDO LOGRARLO
+    - TE DIRE UNA PALABRA P.O.T.E.N.C.I.A
+    - EL DOLOR DESAPARECE, EL ORGULLO NO
+    - TENGO QUE ESTAR EN ESTA EMPRESA POR QUE ME ENCANTA
+    - ME GUSTA LA ZONA Y CONOZCO A MIS CLIENTES
+    - "PODRE HACERLO CON TIEMPO Y DEDICACI\xD3N"
+    - "LO HAR\xC9"
+    - "CON ESFUERZO Y DEDICACI\xD3N TODO ES POSIBLE"
+    - VOY HA CONSEGUIRLO
+    - SOY UN PROFESIONAL
+    - SOY UN EXPERTO
+    - SOY ADMIN
+    - LO TENGO TODO BAJO CONTROL
+    - LA RESPUESTA CORTA ES SI
+    - LA RESPUESTA ESTA EN TU INTERIOR

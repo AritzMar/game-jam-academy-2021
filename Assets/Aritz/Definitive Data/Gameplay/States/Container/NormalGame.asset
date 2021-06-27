@@ -9,17 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38d4cebf70c2ec64dbeb398378824c32, type: 3}
+  m_Script: {fileID: 11500000, guid: 410821945057fd547bbb6faaca574e20, type: 3}
   m_Name: NormalGame
   m_EditorClassIdentifier: 
   gameLogics:
-  - Name: Starting
-    Delegate: {fileID: 11400000, guid: 578591ec639f6a345b7a784c8b387a7e, type: 2}
-  - Name: Waiting
-    Delegate: {fileID: 11400000, guid: 96762a10f00528e45bf4d8c397c51a98, type: 2}
-  - Name: Playing
-    Delegate: {fileID: 11400000, guid: ff79dc20639ae0b48ad4cde2900934da, type: 2}
-  - Name: EndTurn
-    Delegate: {fileID: 11400000, guid: ce32a10e46a7e7b4fa0f9db2582dd927, type: 2}
-  - Name: Finished
-    Delegate: {fileID: 11400000, guid: a831d5dfe7bb1a54386e824e4c501f87, type: 2}
+  - Delegate: {fileID: 11400000, guid: 578591ec639f6a345b7a784c8b387a7e, type: 2}
+  - Delegate: {fileID: 11400000, guid: 506a0118226c30642947d7693421cf40, type: 2}
+  - Delegate: {fileID: 11400000, guid: 7265eeb9abc057740953748c29aa635a, type: 2}
+  - Delegate: {fileID: 11400000, guid: 82661386aa1491a418fb3b85e3c71fb4, type: 2}
+  - Delegate: {fileID: 11400000, guid: 8391747bb21ace5488e0f889dbb982d7, type: 2}

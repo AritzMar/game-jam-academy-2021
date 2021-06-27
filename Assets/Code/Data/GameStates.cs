@@ -7,7 +7,6 @@ public class GameStates : ScriptableObject
     [System.Serializable]
     public class GameLogic
     {
-        public string Name;
         public GameState Delegate;
     }
     
@@ -15,7 +14,7 @@ public class GameStates : ScriptableObject
     
     public GameState ObtainEventWithLogic(string State)
     {
-        GameLogic logicToObtain = Array.Find(gameLogics, l => l.Name == State);
+        GameLogic logicToObtain = Array.Find(gameLogics, l => l.Delegate.name == State);
         if(logicToObtain != null)
             return logicToObtain.Delegate;
         else
@@ -24,7 +23,7 @@ public class GameStates : ScriptableObject
 
     public void FindAndPerform(string states)
     {
-        GameLogic tempLogic = Array.Find(gameLogics, g => g.Name == states);
+        GameLogic tempLogic = Array.Find(gameLogics, g => g.Delegate.name == states);
         tempLogic?.Delegate.Raise(states);
     }
 }

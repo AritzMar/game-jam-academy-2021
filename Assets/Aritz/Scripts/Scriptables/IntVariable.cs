@@ -3,7 +3,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName ="new Int Variable", menuName ="GJ/Variables/Int Variable")]
 public class IntVariable : ScriptableObject
 {
-	public System.Action OnValueChange { get; set; }
+	public System.Action<int> OnValueChange { get; set; }
 
 	[SerializeField] private int initialValue;
 	private int currentValue;
@@ -14,12 +14,12 @@ public class IntVariable : ScriptableObject
 		set
 		{ 
 			currentValue = value; 
-			OnValueChange?.Invoke();
+			OnValueChange?.Invoke(value);
 		}
 	}
 
 	private void OnEnable() => CurrentValue = initialValue;
-	private void OnValidate() => OnValueChange?.Invoke();
+	//private void OnValidate() => OnValueChange?.Invoke();
 
 	public void ResetCurrentToInitial() => CurrentValue = initialValue;
 }

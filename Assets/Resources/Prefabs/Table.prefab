@@ -174,6 +174,7 @@ GameObject:
   - component: {fileID: 1105999601888338963}
   - component: {fileID: 7607513033524630040}
   - component: {fileID: 342926372586137362}
+  - component: {fileID: 9106278399629011830}
   m_Layer: 0
   m_Name: Torret2
   m_TagString: Untagged
@@ -203,14 +204,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1105999601888338964}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c9b5dd99b3c4f6d449b5e2afaffa7cee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   TorretHead: {fileID: 6615205859612848108}
   TorretScope: {fileID: 9106278399339481375}
-  BulletPrefab: {fileID: 1082400860057930391, guid: 3ca5efffc80581c48b9b86c72404b5b0, type: 3}
   LaserMaterial: {fileID: 2100000, guid: f1cb90efbed061e468b5d79beae84921, type: 2}
   RechargingDuration: 1
 --- !u!33 &7607513033524630040
@@ -265,6 +265,76 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &9106278399629011830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1105999601888338964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92dfc5e472c787e4b8076a514816e3d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StatesEvents:
+  - State: {fileID: 11400000, guid: 7265eeb9abc057740953748c29aa635a, type: 2}
+    Events:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1105999601888338963}
+          m_TargetAssemblyTypeName: Chtulhitos.Mechanics.Torret, Assembly-CSharp
+          m_MethodName: StartFollowPlayer
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1105999601888338963}
+          m_TargetAssemblyTypeName: Chtulhitos.Mechanics.Torret, Assembly-CSharp
+          m_MethodName: SetFollowCondition
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+  - State: {fileID: 11400000, guid: 82661386aa1491a418fb3b85e3c71fb4, type: 2}
+    Events:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1105999601888338963}
+          m_TargetAssemblyTypeName: Chtulhitos.Mechanics.Torret, Assembly-CSharp
+          m_MethodName: StopFollowPlayer
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1105999601888338963}
+          m_TargetAssemblyTypeName: Chtulhitos.Mechanics.Torret, Assembly-CSharp
+          m_MethodName: SetFollowCondition
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  GameStates: {fileID: 11400000, guid: 95811a6f22a541a47ba2345299c76618, type: 2}
 --- !u!1 &2323236171718089677
 GameObject:
   m_ObjectHideFlags: 0
@@ -277,6 +347,7 @@ GameObject:
   - component: {fileID: 772335808}
   - component: {fileID: 987137546271200252}
   - component: {fileID: 1140358954659323517}
+  - component: {fileID: 9106278399629011827}
   m_Layer: 0
   m_Name: Torret1
   m_TagString: Untagged
@@ -306,14 +377,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2323236171718089677}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c9b5dd99b3c4f6d449b5e2afaffa7cee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   TorretHead: {fileID: 6049004604882466040}
   TorretScope: {fileID: 9106278401378641529}
-  BulletPrefab: {fileID: 1082400860057930391, guid: 3ca5efffc80581c48b9b86c72404b5b0, type: 3}
   LaserMaterial: {fileID: 2100000, guid: f1cb90efbed061e468b5d79beae84921, type: 2}
   RechargingDuration: 1
 --- !u!33 &987137546271200252
@@ -368,6 +438,76 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &9106278399629011827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2323236171718089677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92dfc5e472c787e4b8076a514816e3d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StatesEvents:
+  - State: {fileID: 11400000, guid: 7265eeb9abc057740953748c29aa635a, type: 2}
+    Events:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 772335808}
+          m_TargetAssemblyTypeName: Chtulhitos.Mechanics.Torret, Assembly-CSharp
+          m_MethodName: StartFollowPlayer
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 772335808}
+          m_TargetAssemblyTypeName: Chtulhitos.Mechanics.Torret, Assembly-CSharp
+          m_MethodName: SetFollowCondition
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+  - State: {fileID: 11400000, guid: 82661386aa1491a418fb3b85e3c71fb4, type: 2}
+    Events:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 772335808}
+          m_TargetAssemblyTypeName: Chtulhitos.Mechanics.Torret, Assembly-CSharp
+          m_MethodName: StopFollowPlayer
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 772335808}
+          m_TargetAssemblyTypeName: Chtulhitos.Mechanics.Torret, Assembly-CSharp
+          m_MethodName: SetFollowCondition
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  GameStates: {fileID: 11400000, guid: 95811a6f22a541a47ba2345299c76618, type: 2}
 --- !u!1 &3491051945055996850
 GameObject:
   m_ObjectHideFlags: 0
@@ -475,7 +615,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7785469130965649513}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.5, y: 0, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8779000600563306242}
@@ -494,6 +634,7 @@ GameObject:
   - component: {fileID: 4861220613168917163}
   - component: {fileID: 9106278401202961245}
   - component: {fileID: 7835370121992703050}
+  - component: {fileID: 1207045129}
   m_Layer: 3
   m_Name: Table
   m_TagString: Untagged
@@ -591,8 +732,38 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pinTarget: {fileID: 0}
-  checkingSpeed: 0.5
+  checkingSpeed: 1
   checkingDistance: 1
+--- !u!114 &1207045129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7835370121992703051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92dfc5e472c787e4b8076a514816e3d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StatesEvents:
+  - State: {fileID: 11400000, guid: 578591ec639f6a345b7a784c8b387a7e, type: 2}
+    Events:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 7835370121992703050}
+          m_TargetAssemblyTypeName: MinigameFloor, Assembly-CSharp
+          m_MethodName: DoChecking
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  GameStates: {fileID: 11400000, guid: 95811a6f22a541a47ba2345299c76618, type: 2}
 --- !u!1 &8259203851986671032
 GameObject:
   m_ObjectHideFlags: 0
@@ -767,7 +938,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9106278400677100065}
   - component: {fileID: 9106278400677100064}
-  - component: {fileID: 9106278399629011827}
+  - component: {fileID: 9106278399629011833}
   m_Layer: 0
   m_Name: Spawn1
   m_TagString: Untagged
@@ -806,8 +977,7 @@ MonoBehaviour:
   SpawnSize: 10
   FinishTarget: {fileID: 9106278401020532856}
   ObjectToSpawn: {fileID: 3686447722283403881, guid: e9d0c7378c7e56a4da826a307955649c, type: 3}
-  stateListener: {fileID: 0}
---- !u!114 &9106278399629011827
+--- !u!114 &9106278399629011833
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -816,11 +986,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 9106278400677100066}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 559d78ab896c4b04aa6e0f29dcb82d51, type: 3}
+  m_Script: {fileID: 11500000, guid: 92dfc5e472c787e4b8076a514816e3d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   StatesEvents:
-  - State: Playing
+  - State: {fileID: 11400000, guid: 7265eeb9abc057740953748c29aa635a, type: 2}
     Events:
       m_PersistentCalls:
         m_Calls:
@@ -836,7 +1006,7 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-  - State: EndTurn
+  - State: {fileID: 11400000, guid: 82661386aa1491a418fb3b85e3c71fb4, type: 2}
     Events:
       m_PersistentCalls:
         m_Calls:
@@ -852,7 +1022,7 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-  GameStates: {fileID: 11400000, guid: 0c42a527ec62e184e9d35c441b96c8f2, type: 2}
+  GameStates: {fileID: 11400000, guid: 95811a6f22a541a47ba2345299c76618, type: 2}
 --- !u!1 &9106278400708610517
 GameObject:
   m_ObjectHideFlags: 0
@@ -958,7 +1128,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9106278401020532856}
   - component: {fileID: 9106278401020532855}
-  - component: {fileID: 9106278399629011826}
+  - component: {fileID: 3122354553937141650}
   m_Layer: 0
   m_Name: Spawn2
   m_TagString: Untagged
@@ -997,8 +1167,7 @@ MonoBehaviour:
   SpawnSize: 10
   FinishTarget: {fileID: 9106278400677100065}
   ObjectToSpawn: {fileID: 3686447722283403881, guid: e9d0c7378c7e56a4da826a307955649c, type: 3}
-  stateListener: {fileID: 0}
---- !u!114 &9106278399629011826
+--- !u!114 &3122354553937141650
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1007,11 +1176,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 9106278401020532857}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 559d78ab896c4b04aa6e0f29dcb82d51, type: 3}
+  m_Script: {fileID: 11500000, guid: 92dfc5e472c787e4b8076a514816e3d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   StatesEvents:
-  - State: Playing
+  - State: {fileID: 11400000, guid: 7265eeb9abc057740953748c29aa635a, type: 2}
     Events:
       m_PersistentCalls:
         m_Calls:
@@ -1027,7 +1196,7 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-  - State: EndTurn
+  - State: {fileID: 11400000, guid: 82661386aa1491a418fb3b85e3c71fb4, type: 2}
     Events:
       m_PersistentCalls:
         m_Calls:
@@ -1043,7 +1212,7 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-  GameStates: {fileID: 11400000, guid: 0c42a527ec62e184e9d35c441b96c8f2, type: 2}
+  GameStates: {fileID: 11400000, guid: 95811a6f22a541a47ba2345299c76618, type: 2}
 --- !u!1 &9106278401378641530
 GameObject:
   m_ObjectHideFlags: 0

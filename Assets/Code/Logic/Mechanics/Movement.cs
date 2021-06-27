@@ -8,7 +8,6 @@ namespace Chtulhitos.Mechanics
     {
         public NavMeshAgent agent;
         [SerializeField] private Transform startPoint;
-        [SerializeField] private StateListener stateListener;
 
         private bool canMove = false;
         public void ChangeMoveCondition(bool condition) => canMove = condition;

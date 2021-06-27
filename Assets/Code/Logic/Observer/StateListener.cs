@@ -7,7 +7,7 @@ public class StateListener : MonoBehaviour {
     [System.Serializable]
     public class StateToPerform
     {        
-        public string State;
+        public GameState State;
         public UnityEvent Events;
     }
 
@@ -18,7 +18,7 @@ public class StateListener : MonoBehaviour {
     {
         for (int i = 0; i < StatesEvents.Length; i++)
         {
-            GameState tempGameEvent = GameStates.ObtainEventWithLogic(StatesEvents[i].State);
+            GameState tempGameEvent = GameStates.ObtainEventWithLogic(StatesEvents[i].State.name);
             tempGameEvent.Subscribe(this);
         }
     }
@@ -27,14 +27,14 @@ public class StateListener : MonoBehaviour {
     {
         for (int i = 0; i < StatesEvents.Length; i++)
         {
-            GameState tempGameEvent = GameStates.ObtainEventWithLogic(StatesEvents[i].State);
+            GameState tempGameEvent = GameStates.ObtainEventWithLogic(StatesEvents[i].State.name);
             tempGameEvent.Unsubscribe(this);
         }
     }
 
     public void Fire(string state)
     {
-        StateToPerform targetState = Array.Find(StatesEvents, e => e.State == state);
+        StateToPerform targetState = Array.Find(StatesEvents, e => e.State.name == state);
         targetState?.Events.Invoke();
     }
 }

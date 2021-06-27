@@ -1,55 +1,44 @@
 using System.Collections;
-using System;
 using UnityEngine;
 
 public class Timer : MonoBehaviour
 {
-
-    public static Action OnTimerStarted;
-    public static Action OnTimerIsCritical;
-    public static Action OnTimerEnded;
-
-    [SerializeField] private StateListener stateListener;
-
     [SerializeField] private IntVariable timeToDo;
+    [SerializeField] private FlowHandler flowHandler;
 
     private IEnumerator TimeCorroutine;
 
+    private bool timerRunning = false;
+    public void ChangeTimerRunning(bool condition) => timerRunning = condition; 
+
     public void StartTimer()
     {
+        timerRunning = true;
+
         TimeCorroutine = RunTime();
         StartCoroutine(TimeCorroutine);
     }
 
     public void StopTimer()
     {
-        StartCoroutine(TimeCorroutine);
+        StopCoroutine(TimeCorroutine);
         timeToDo.ResetCurrentToInitial();
     }
 
     private IEnumerator RunTime()
     {
-        float reducedTime = timeToDo.CurrentValue / 2f;
+        if (!timerRunning)
+            yield break;
 
-        if(OnTimerStarted != null)
-            OnTimerStarted();
-
-        yield return new WaitForSeconds(reducedTime);
-
-        if(OnTimerIsCritical != null)
-            OnTimerIsCritical();
-
-        while(reducedTime >= float.Epsilon)
+        while(timeToDo.CurrentValue > uint.MinValue)
         {
-            reducedTime -= Time.deltaTime;
-            yield return null;
-        }
+            timeToDo.CurrentValue -= 1;
+            yield return new WaitForSeconds(1f);
+        } 
 
-        if(OnTimerEnded != null)
-            OnTimerEnded();
+        flowHandler.PerformAModifier();
 
-        TimeCorroutine = null;
-        yield break;
+        timerRunning = false;
     }
 
 }

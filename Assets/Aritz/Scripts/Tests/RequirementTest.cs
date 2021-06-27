@@ -8,7 +8,7 @@ public class RequirementTest : MonoBehaviour
 
 	private void Start()
 	{
-		exigencias.Requirements[0].OnValueChange += () => OnValueChanged();
+		exigencias.Requirements[0].OnValueChange += (a) => OnValueChanged(a);
 	}
 
 	void Update()
@@ -24,6 +24,6 @@ public class RequirementTest : MonoBehaviour
 			Debug.Log(exigencias.Requirements[i].CurrentValue);
 	}
 
-	public void OnValueChanged() => uiText.text = exigencias.Requirements[0].CurrentValue.ToString();
+	public void OnValueChanged(int a) => uiText.text = exigencias.Requirements[0].CurrentValue.ToString();
 
 }
