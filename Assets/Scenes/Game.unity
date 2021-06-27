@@ -6841,26 +6841,26 @@ MonoBehaviour:
   RechargingDuration: 1
   laserRedColor: {r: 0.8207547, g: 0.45296368, b: 0.45296368, a: 1}
   laserGreenColor: {r: 0.43654326, g: 0.8490566, b: 0.56434065, a: 1}
-  withCurve:
+  widthCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0.1
-      inSlope: -0.06156546
-      outSlope: -0.06156546
-      tangentMode: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.076757774
+      outWeight: 0
     - serializedVersion: 3
       time: 1
-      value: 0.05
-      inSlope: -0.060773283
-      outSlope: -0.060773283
-      tangentMode: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
       weightedMode: 0
-      inWeight: 0.082176864
+      inWeight: 0
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -7081,26 +7081,26 @@ MonoBehaviour:
   RechargingDuration: 1
   laserRedColor: {r: 0.8207547, g: 0.45296368, b: 0.45296368, a: 1}
   laserGreenColor: {r: 0.43654326, g: 0.8490566, b: 0.56434065, a: 1}
-  withCurve:
+  widthCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0.1
-      inSlope: -0.06156546
-      outSlope: -0.06156546
-      tangentMode: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.076757774
+      outWeight: 0
     - serializedVersion: 3
       time: 1
-      value: 0.05
-      inSlope: -0.060773283
-      outSlope: -0.060773283
-      tangentMode: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
       weightedMode: 0
-      inWeight: 0.082176864
+      inWeight: 0
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2

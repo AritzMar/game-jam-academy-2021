@@ -5,26 +5,26 @@ using TMPro;
 
 public class RoundUI : MonoBehaviour
 {
-    public Round RoundValue;
-    public TMP_Text RoundLabel;
+	public Round RoundValue;
+	public TextMeshProUGUI RoundLabel;
 
-     private void Start() 
-    {
-        ChangeRoundText(RoundValue.CurrentRound);
-    }
+	 private void Start() 
+	{
+		ChangeRoundText(RoundValue.CurrentRound);
+	}
 
-    private void OnEnable() 
-    {
-        RoundValue.OnRoundChange += ChangeRoundText;
-    }
+	private void OnEnable() 
+	{
+		RoundValue.OnRoundChange += ChangeRoundText;
+	}
 
-    private void OnDisable() 
-    {
-        RoundValue.OnRoundChange -= ChangeRoundText;
-    }
+	private void OnDisable() 
+	{
+		RoundValue.OnRoundChange -= ChangeRoundText;
+	}
 
-    private void ChangeRoundText(int round)
-    {
-        RoundLabel.text = round.ToString();
-    }
+	private void ChangeRoundText(int round)
+	{
+		RoundLabel.text = round.ToString();
+	}
 }

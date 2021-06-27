@@ -12,7 +12,7 @@ namespace Chtulhitos.Mechanics
         public float RechargingDuration;
         public Color laserRedColor;
         public Color laserGreenColor;
-        public AnimationCurve withCurve;
+        //public AnimationCurve widthCurve;
         public IntVariable turretDamage;
 
         private LineRenderer laserLine;
@@ -49,10 +49,11 @@ namespace Chtulhitos.Mechanics
         {
             targetToFollow = position;
 
-            laserLine = gameObject.AddComponent<LineRenderer>();
-            laserLine.widthCurve = withCurve;
-            //laserLine.startWidth = 0.1f;
-            //laserLine.endWidth = 0.1f;
+            if(laserLine == null)
+                laserLine = gameObject.AddComponent<LineRenderer>();
+            //laserLine.widthCurve = widthCurve;
+            laserLine.startWidth = 0.1f;
+            laserLine.endWidth = 0.1f;
             laserLine.material = LaserMaterial;
 
             Vector3[] laserDirection = new Vector3[]{TorretScope.position, TorretScope.position};
