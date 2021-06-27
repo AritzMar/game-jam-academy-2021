@@ -15,7 +15,7 @@ public class PlaySoundResources : MonoBehaviour
 	}
 	public static void PlaySound_String(string name)
 	{
-		AudioClip audio = Resources.Load<AudioClip>("Audio/" + name) as AudioClip;
+		AudioClip audio = Resources.Load<AudioClip>("Audio/GJA_SFX_Assets/" + name ) ;
 		source.PlayOneShot(audio);
 	}
 }
