@@ -2180,6 +2180,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2064998236}
+  - component: {fileID: 2064998238}
+  - component: {fileID: 2064998237}
   m_Layer: 0
   m_Name: '### Timer'
   m_TagString: Untagged
@@ -2201,6 +2203,66 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2064998237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2064998235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 559d78ab896c4b04aa6e0f29dcb82d51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StatesEvents:
+  - State: Playing
+    Events:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2064998238}
+          m_TargetAssemblyTypeName: Timer, Assembly-CSharp
+          m_MethodName: StartTimer
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - State: EndTurn
+    Events:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2064998238}
+          m_TargetAssemblyTypeName: Timer, Assembly-CSharp
+          m_MethodName: StopTimer
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  GameStates: {fileID: 11400000, guid: 0c42a527ec62e184e9d35c441b96c8f2, type: 2}
+--- !u!114 &2064998238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2064998235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe9a2f488637c944daa6f69277ddf1e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stateListener: {fileID: 2064998237}
+  timeToDo: {fileID: 11400000, guid: 2219b019c90718041b42008dedf3c522, type: 2}
 --- !u!1 &2118506820
 GameObject:
   m_ObjectHideFlags: 0
@@ -2211,8 +2273,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2118506822}
   - component: {fileID: 2118506821}
-  - component: {fileID: 2118506823}
-  - component: {fileID: 2118506824}
   m_Layer: 0
   m_Name: '### Game'
   m_TagString: Untagged
@@ -2247,66 +2307,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2118506823
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2118506820}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe9a2f488637c944daa6f69277ddf1e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stateListener: {fileID: 2118506824}
-  timeToDo: {fileID: 11400000, guid: 5788f858ed4dc064db8ece2a8a6820c7, type: 2}
---- !u!114 &2118506824
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2118506820}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 559d78ab896c4b04aa6e0f29dcb82d51, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  StatesEvents:
-  - State: Starting
-    Events:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 2118506823}
-          m_TargetAssemblyTypeName: Timer, Assembly-CSharp
-          m_MethodName: StartTimer
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - State: EndTurn
-    Events:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 2118506823}
-          m_TargetAssemblyTypeName: Timer, Assembly-CSharp
-          m_MethodName: StopTimer
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  GameStates: {fileID: 11400000, guid: 0c42a527ec62e184e9d35c441b96c8f2, type: 2}
 --- !u!1001 &9106278399629011823
 PrefabInstance:
   m_ObjectHideFlags: 0
