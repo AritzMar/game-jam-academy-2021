@@ -4817,6 +4817,7 @@ GameObject:
   - component: {fileID: 2374372808067461373}
   - component: {fileID: 4658721626619013566}
   - component: {fileID: 1579161065281470867}
+  - component: {fileID: -1471958203139157999}
   m_Layer: 0
   m_Name: Tech_Skills_Prefab
   m_TagString: Untagged
@@ -4915,5 +4916,19 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.12100734, y: 0.12100734, z: 0.035314113}
-  m_Center: {x: -0.0000000055879354, y: 0, z: 9.313226e-10}
+  m_Size: {x: 0.1151099, y: 0.14980638, z: 0.111945406}
+  m_Center: {x: 0, y: 0.0038682818, z: 0.04847276}
+--- !u!114 &-1471958203139157999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4319949355992387880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e92b00b40eaf20842970ec0961eeb273, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offset: {x: 0, y: 2, z: 0}
+  xFinishCoordinate: -19

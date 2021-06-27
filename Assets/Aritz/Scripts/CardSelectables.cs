@@ -11,9 +11,10 @@ public class CardSelectables : MonoBehaviour
 
 	private void OnTriggerEnter(Collider other)
 	{
+		/*
 		var newParent = other.transform.GetChild(0).transform;
 		transform.position =newParent.position;
 		transform.parent = newParent;
-		transform.DOScale(Vector3.one * 11, 0.4f);
+		transform.DOScale(Vector3.one * 11, 0.4f);*/
 	}
 }

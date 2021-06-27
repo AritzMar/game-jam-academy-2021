@@ -4817,6 +4817,7 @@ GameObject:
   - component: {fileID: 5592671028618776491}
   - component: {fileID: 5592671028618776490}
   - component: {fileID: 5592671028618776494}
+  - component: {fileID: 402446219992844137}
   m_Layer: 0
   m_Name: Soft_Skills_Prefab
   m_TagString: Untagged
@@ -4900,8 +4901,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.09232191, y: 0.09232193, z: 0.15824074}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.18352373, y: 0.14980638, z: 0.18758555}
+  m_Center: {x: -0.03420688, y: 0.0038682823, z: 0.010652623}
 --- !u!114 &5592671028618776494
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4917,3 +4918,17 @@ MonoBehaviour:
   index: 0
   selectedCard: {fileID: 11400000, guid: e9c28ecd78f96e24eba9d4a128a8b888, type: 2}
   visibleCards: {fileID: 11400000, guid: 7f98f224e0c1da34991122f3edb13f88, type: 2}
+--- !u!114 &402446219992844137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5592671028618776489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e92b00b40eaf20842970ec0961eeb273, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offset: {x: 0, y: 2, z: 0}
+  xFinishCoordinate: -19
