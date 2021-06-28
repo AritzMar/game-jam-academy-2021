@@ -8,6 +8,7 @@ public class CardGOUpdater : MonoBehaviour
 	public Material techMat;
 	public Material softMat;
 	public Material portMat;
+	public Material backMaterial;
 	public DeckScriptable visibleCards;
 	public DeckController DeckController;
 	public TextMeshPro cardText;
@@ -37,23 +38,19 @@ public class CardGOUpdater : MonoBehaviour
 			switch (c.RequirementName.RequirementName)
 			{
 				case "Experiencia":
-					meshRenderer.materials[0].mainTexture = expMat.mainTexture;
-					meshRenderer.materials[1].mainTexture = expMat.mainTexture;
+					ChangeMaterial(expMat);
 					break;
 
 				case "Portfolio":
-					meshRenderer.materials[0].mainTexture = portMat.mainTexture;
-					meshRenderer.materials[1].mainTexture = portMat.mainTexture;
+					ChangeMaterial(portMat);
 					break;
 
 				case "Soft Skill":
-					meshRenderer.materials[0].mainTexture = softMat.mainTexture;
-					meshRenderer.materials[1].mainTexture = softMat.mainTexture;
+					ChangeMaterial(softMat);
 					break;
 
 				default:
-					meshRenderer.materials[0].mainTexture = techMat.mainTexture;
-					meshRenderer.materials[1].mainTexture = techMat.mainTexture;
+					ChangeMaterial(techMat);
 					break;
 			}
 
@@ -69,5 +66,19 @@ public class CardGOUpdater : MonoBehaviour
 
 			cardText.text = cText;
 		}
+	}
+
+	public void ResetCardVisuals()
+	{
+		ChangeMaterial(backMaterial);
+		cardText.text = "";
+	}
+
+	private void ChangeMaterial(Material mat)
+	{
+		var mats = meshRenderer.materials;
+		mats[0] = mat;
+		mats[1] = mat;
+		meshRenderer.materials = mats;
 	}
 }

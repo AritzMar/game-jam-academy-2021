@@ -4,7 +4,7 @@ using System.Collections.Generic;
 [CreateAssetMenu(fileName = "new GameState", menuName = "GJ/Game/Game State")]
 public class GameState : ScriptableObject 
 {
-	private List<StateListener> listeners;
+	private List<StateListener> listeners = new List<StateListener>();
 
 	public void Subscribe(StateListener listener)
 	{
@@ -14,7 +14,6 @@ public class GameState : ScriptableObject
 
 	public void Unsubscribe(StateListener listener)
 	{
-
 		if (listeners.Contains(listener))
 			listeners.Remove(listener);
 	}
@@ -23,6 +22,5 @@ public class GameState : ScriptableObject
 	{
 		foreach (StateListener listener in listeners)
 			listener?.Fire(state);
-
 	}
 }

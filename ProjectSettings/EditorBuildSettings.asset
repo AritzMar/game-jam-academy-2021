@@ -5,13 +5,13 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Audio/AudioTesting.unity
-    guid: 32c3d7eb0ea96a946a40da89e0e73b0c
-  - enabled: 0
-    path: Assets/isvaku/MAINMENUEMERGENCIA.unity
-    guid: 64872f0199db0a74aa20fac94c22fb26
   - enabled: 1
-    path: Assets/Scenes/Game.unity
+    path: Assets/Scenes/1-Main Menu.unity
+    guid: 2d0e7f034504ffd40b5dbbe176a4f2cd
+  - enabled: 1
+    path: Assets/Scenes/2-Game.unity
     guid: 857f0372ebd1a8c45ae8e8e27e6bd1bc
+  - enabled: 1
+    path: Assets/Scenes/3-Credits.unity
+    guid: a76faf685c4614a45854c305515c14ce
   m_configObjects: {}

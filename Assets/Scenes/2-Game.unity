@@ -10804,9 +10804,9 @@ RectTransform:
   m_Father: {fileID: 596048828}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 90, y: -157}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &247765546
@@ -10937,9 +10937,9 @@ RectTransform:
   m_Father: {fileID: 596048828}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 90, y: -91}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &275231609
@@ -11100,9 +11100,9 @@ RectTransform:
   m_Father: {fileID: 596048828}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 90, y: -124}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &299727477
@@ -11812,6 +11812,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deck: {fileID: 11400000, guid: 60534a6cd20bb394d8197b33647dd7d5, type: 2}
   visibleCards: {fileID: 11400000, guid: 7f98f224e0c1da34991122f3edb13f88, type: 2}
+  selectedCard: {fileID: 11400000, guid: e9c28ecd78f96e24eba9d4a128a8b888, type: 2}
 --- !u!4 &416761746
 Transform:
   m_ObjectHideFlags: 0
@@ -16978,8 +16979,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: fd7499de85052044cb78c4c80c0f96dd, type: 2}
-  m_sharedMaterial: {fileID: 4200808491755506407, guid: fd7499de85052044cb78c4c80c0f96dd, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -17067,7 +17068,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 4200808491755506407, guid: fd7499de85052044cb78c4c80c0f96dd, type: 2}
+  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -22544,7 +22545,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &596048828
 RectTransform:
   m_ObjectHideFlags: 0
@@ -23286,7 +23287,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 340c5efb1c3632b439ed2fe4d9105902, type: 2}
-  - {fileID: 2100000, guid: 224915280eaaca0489dbc17dd5a88015, type: 2}
+  - {fileID: 2100000, guid: d4e5590067b474a4385e83780ea0a50d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -34155,7 +34156,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 340c5efb1c3632b439ed2fe4d9105902, type: 2}
-  - {fileID: 2100000, guid: 224915280eaaca0489dbc17dd5a88015, type: 2}
+  - {fileID: 2100000, guid: d4e5590067b474a4385e83780ea0a50d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -39441,7 +39442,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 340c5efb1c3632b439ed2fe4d9105902, type: 2}
-  - {fileID: 2100000, guid: 224915280eaaca0489dbc17dd5a88015, type: 2}
+  - {fileID: 2100000, guid: d4e5590067b474a4385e83780ea0a50d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -54379,7 +54380,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 340c5efb1c3632b439ed2fe4d9105902, type: 2}
-  - {fileID: 2100000, guid: 224915280eaaca0489dbc17dd5a88015, type: 2}
+  - {fileID: 2100000, guid: d4e5590067b474a4385e83780ea0a50d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -54672,9 +54673,9 @@ RectTransform:
   m_Father: {fileID: 596048828}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 90, y: -58}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1253446820
@@ -55829,7 +55830,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 340c5efb1c3632b439ed2fe4d9105902, type: 2}
-  - {fileID: 2100000, guid: 224915280eaaca0489dbc17dd5a88015, type: 2}
+  - {fileID: 2100000, guid: d4e5590067b474a4385e83780ea0a50d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -61360,8 +61361,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: fd7499de85052044cb78c4c80c0f96dd, type: 2}
-  m_sharedMaterial: {fileID: 4200808491755506407, guid: fd7499de85052044cb78c4c80c0f96dd, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -61449,7 +61450,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 4200808491755506407, guid: fd7499de85052044cb78c4c80c0f96dd, type: 2}
+  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -71527,9 +71528,9 @@ RectTransform:
   m_Father: {fileID: 596048828}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 90, y: -25}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1714512916
@@ -71708,7 +71709,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 340c5efb1c3632b439ed2fe4d9105902, type: 2}
-  - {fileID: 2100000, guid: 224915280eaaca0489dbc17dd5a88015, type: 2}
+  - {fileID: 2100000, guid: d4e5590067b474a4385e83780ea0a50d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -76887,8 +76888,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: fd7499de85052044cb78c4c80c0f96dd, type: 2}
-  m_sharedMaterial: {fileID: 4200808491755506407, guid: fd7499de85052044cb78c4c80c0f96dd, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -76976,7 +76977,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 4200808491755506407, guid: fd7499de85052044cb78c4c80c0f96dd, type: 2}
+  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -77050,7 +77051,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 340c5efb1c3632b439ed2fe4d9105902, type: 2}
-  - {fileID: 2100000, guid: 224915280eaaca0489dbc17dd5a88015, type: 2}
+  - {fileID: 2100000, guid: d4e5590067b474a4385e83780ea0a50d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -82236,7 +82237,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 340c5efb1c3632b439ed2fe4d9105902, type: 2}
-  - {fileID: 2100000, guid: 224915280eaaca0489dbc17dd5a88015, type: 2}
+  - {fileID: 2100000, guid: d4e5590067b474a4385e83780ea0a50d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -87369,6 +87370,7 @@ GameObject:
   - component: {fileID: 3469287838070694606}
   - component: {fileID: 1711813855083599364}
   - component: {fileID: 919132147602044882}
+  - component: {fileID: 919132147602044883}
   m_Layer: 0
   m_Name: CARD 2
   m_TagString: Untagged
@@ -87393,10 +87395,41 @@ MonoBehaviour:
   techMat: {fileID: 2100000, guid: a47c949e1ae365c459949f76b3243262, type: 2}
   softMat: {fileID: 2100000, guid: 0b7100dc86da02b44ad9241e560d7392, type: 2}
   portMat: {fileID: 2100000, guid: f9e0c020b29f4c94f862f8b5f6efd5f3, type: 2}
+  backMaterial: {fileID: 2100000, guid: d4e5590067b474a4385e83780ea0a50d, type: 2}
   visibleCards: {fileID: 11400000, guid: 7f98f224e0c1da34991122f3edb13f88, type: 2}
   DeckController: {fileID: 416761745}
   cardText: {fileID: 1583977696}
   myIndex: 1
+--- !u!114 &919132147602044883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132147602044881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92dfc5e472c787e4b8076a514816e3d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StatesEvents:
+  - State: {fileID: 11400000, guid: 506a0118226c30642947d7693421cf40, type: 2}
+    Events:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 919132147602044882}
+          m_TargetAssemblyTypeName: CardGOUpdater, Assembly-CSharp
+          m_MethodName: ResetCardVisuals
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  GameStates: {fileID: 11400000, guid: 95811a6f22a541a47ba2345299c76618, type: 2}
 --- !u!1 &919132148375678244
 GameObject:
   m_ObjectHideFlags: 0
@@ -87409,6 +87442,7 @@ GameObject:
   - component: {fileID: 3469287838295373883}
   - component: {fileID: 1711813854301605105}
   - component: {fileID: 919132148375678245}
+  - component: {fileID: 919132148375678246}
   m_Layer: 0
   m_Name: CARD 1
   m_TagString: Untagged
@@ -87433,10 +87467,41 @@ MonoBehaviour:
   techMat: {fileID: 2100000, guid: a47c949e1ae365c459949f76b3243262, type: 2}
   softMat: {fileID: 2100000, guid: 0b7100dc86da02b44ad9241e560d7392, type: 2}
   portMat: {fileID: 2100000, guid: f9e0c020b29f4c94f862f8b5f6efd5f3, type: 2}
+  backMaterial: {fileID: 2100000, guid: d4e5590067b474a4385e83780ea0a50d, type: 2}
   visibleCards: {fileID: 11400000, guid: 7f98f224e0c1da34991122f3edb13f88, type: 2}
   DeckController: {fileID: 416761745}
   cardText: {fileID: 1922007919}
   myIndex: 0
+--- !u!114 &919132148375678246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132148375678244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92dfc5e472c787e4b8076a514816e3d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StatesEvents:
+  - State: {fileID: 11400000, guid: 506a0118226c30642947d7693421cf40, type: 2}
+    Events:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 919132148375678245}
+          m_TargetAssemblyTypeName: CardGOUpdater, Assembly-CSharp
+          m_MethodName: ResetCardVisuals
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  GameStates: {fileID: 11400000, guid: 95811a6f22a541a47ba2345299c76618, type: 2}
 --- !u!1 &919132148672250728
 GameObject:
   m_ObjectHideFlags: 0
@@ -87449,6 +87514,7 @@ GameObject:
   - component: {fileID: 3469287837000472183}
   - component: {fileID: 1711813856158802621}
   - component: {fileID: 919132148672250729}
+  - component: {fileID: 919132148672250730}
   m_Layer: 0
   m_Name: CARD 3
   m_TagString: Untagged
@@ -87473,10 +87539,41 @@ MonoBehaviour:
   techMat: {fileID: 2100000, guid: a47c949e1ae365c459949f76b3243262, type: 2}
   softMat: {fileID: 2100000, guid: 0b7100dc86da02b44ad9241e560d7392, type: 2}
   portMat: {fileID: 2100000, guid: f9e0c020b29f4c94f862f8b5f6efd5f3, type: 2}
+  backMaterial: {fileID: 2100000, guid: d4e5590067b474a4385e83780ea0a50d, type: 2}
   visibleCards: {fileID: 11400000, guid: 7f98f224e0c1da34991122f3edb13f88, type: 2}
   DeckController: {fileID: 416761745}
   cardText: {fileID: 498479592}
   myIndex: 2
+--- !u!114 &919132148672250730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132148672250728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92dfc5e472c787e4b8076a514816e3d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StatesEvents:
+  - State: {fileID: 11400000, guid: 506a0118226c30642947d7693421cf40, type: 2}
+    Events:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 919132148672250729}
+          m_TargetAssemblyTypeName: CardGOUpdater, Assembly-CSharp
+          m_MethodName: ResetCardVisuals
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  GameStates: {fileID: 11400000, guid: 95811a6f22a541a47ba2345299c76618, type: 2}
 --- !u!1 &919132149149438630
 GameObject:
   m_ObjectHideFlags: 0
@@ -87588,7 +87685,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 416761745}
         m_TargetAssemblyTypeName: DeckController, Assembly-CSharp
-        m_MethodName: GetCards
+        m_MethodName: updateCard
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -87885,8 +87982,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 239378781582670930, guid: 1e5c458841fd5304b83a4dc931b0c385, type: 3}
-  - {fileID: 2100000, guid: 224915280eaaca0489dbc17dd5a88015, type: 2}
+  - {fileID: 2100000, guid: d4e5590067b474a4385e83780ea0a50d, type: 2}
+  - {fileID: 2100000, guid: d4e5590067b474a4385e83780ea0a50d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -87927,8 +88024,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 239378781582670930, guid: 1e5c458841fd5304b83a4dc931b0c385, type: 3}
-  - {fileID: 7390871704515345542, guid: 5053d078760544f42a347cbf1134e234, type: 3}
+  - {fileID: 2100000, guid: d4e5590067b474a4385e83780ea0a50d, type: 2}
+  - {fileID: 2100000, guid: d4e5590067b474a4385e83780ea0a50d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -87969,8 +88066,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 239378781582670930, guid: 1e5c458841fd5304b83a4dc931b0c385, type: 3}
-  - {fileID: 7390871704515345542, guid: 5053d078760544f42a347cbf1134e234, type: 3}
+  - {fileID: 2100000, guid: d4e5590067b474a4385e83780ea0a50d, type: 2}
+  - {fileID: 2100000, guid: d4e5590067b474a4385e83780ea0a50d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

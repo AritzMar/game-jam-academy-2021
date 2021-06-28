@@ -18,6 +18,7 @@ public class ChangeSelectedCardOnCollide : MonoBehaviour
 		{
 			selectedCard.SelectedCard = visibleCards.Deck[myIndex];
 			other.GetComponent<Movement>().ActivateHeadGO(myIndex);
+			selectedCard.Position = myIndex;
 			if (runningTween == null)
 			{
 				runningTween = rend.material.DOColor(selectedColor, 0.5f).SetLoops(2, LoopType.Yoyo);

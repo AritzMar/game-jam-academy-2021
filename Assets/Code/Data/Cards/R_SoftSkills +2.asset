@@ -15,5 +15,5 @@ MonoBehaviour:
   playerContainer: {fileID: 11400000, guid: 179d9546bbd607f429b0a62af4ed3956, type: 2}
   bossContainer: {fileID: 11400000, guid: 049c3e0124558ef4687fb0e7fba8c277, type: 2}
   operation: 0
-  opValue: 2
+  opValue: 4
   requirementName: {fileID: 11400000, guid: c6b80ad9c5566ef47a2fbf4b2ac3c328, type: 2}
