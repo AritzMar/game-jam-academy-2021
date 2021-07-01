@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using Chtulhitos.Mechanics;
 
 
 [CreateAssetMenu(fileName = "New Control Card", menuName = "GJ/Cards/Minigame")]
@@ -24,6 +25,11 @@ public class CartaMinijuego : CardScriptable
 	[Header("VARIABLE DEL MINIJUEGO AFECTADA")]
 	[SerializeField] private IntVariable miniGameDifficult;
 
+	public Operation GoodOperation { get => goodOperation; set => goodOperation = value; }
+	public int GoodValue { get => goodValue; set => goodValue = value; }
+	public Operation BadOperation { get => badOperation; set => badOperation = value; }
+	public int BadValue { get => badValue; set => badValue = value; }
+
 
 	private void OnEnable()
 	{
@@ -38,15 +44,17 @@ public class CartaMinijuego : CardScriptable
 
 	public override void Effect()
 	{
-		// Comunicacion con el state pattern??
-		if (true)
-		{
-			performOperation(goodOperation, goodValue, goodName);
+		Debug.Log("2");
+		performOperation(GoodOperation, GoodValue, goodName);
 			UpdateDifficult();
-		}
-		else
-			performOperation(badOperation, badValue, badName);
 	}
+
+	public void BadEffect()
+	{
+		Debug.Log("1");
+		performOperation(BadOperation, badValue, badName);
+	}
+
 
 	private void performOperation(Operation op, int val, RequirementTypeScriptable reqName)
 	{

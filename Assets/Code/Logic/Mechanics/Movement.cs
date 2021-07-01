@@ -6,11 +6,13 @@ namespace Chtulhitos.Mechanics
 	[RequireComponent(typeof(NavMeshAgent))]
 	public class Movement : MonoBehaviour, IHiteable
 	{
-		public NavMeshAgent agent;
+		[SerializeField] private NavMeshAgent agent;
 		[SerializeField] private Transform startPoint;
 		[SerializeField] private ParticleSystem deadEffect;
 		[SerializeField] private DeckScriptable visibleCards;
 		[SerializeField] private SelectedCardScriptable selectedCard;
+
+		public static System.Action OnHit { get; set; }
 
 		private bool canMove = false;
 		public void ChangeMoveCondition(bool condition) => canMove = condition;
@@ -57,6 +59,15 @@ namespace Chtulhitos.Mechanics
 		public void Hit(int damage)
 		{
 			// FALTA QUITAR LA "VIDA"
+			if(selectedCard != null)
+			{
+				if (selectedCard.SelectedCard.MyCardType == CardType.MiniGame)
+				{
+					CartaMinijuego c = (CartaMinijuego)selectedCard.SelectedCard;
+					c.BadEffect();
+					selectedCard.SelectedCard = null;
+				}
+			}
 			selectedCard = null;
 			DeactivateHeadGO();
 			deadEffect.transform.position = transform.position;

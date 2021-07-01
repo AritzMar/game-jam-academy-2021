@@ -22,5 +22,5 @@ MonoBehaviour:
   goodOperation: 0
   goodValue: 5
   badOperation: 1
-  badValue: 10
+  badValue: 9
   miniGameDifficult: {fileID: 11400000, guid: b6e09ef7f83add64ebef6a951205094b, type: 2}

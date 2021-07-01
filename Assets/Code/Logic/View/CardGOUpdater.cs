@@ -1,20 +1,30 @@
 using UnityEngine;
 using TMPro;
+using Chtulhitos.Mechanics;
 
 public class CardGOUpdater : MonoBehaviour
 {
-	public MeshRenderer meshRenderer;
-	public Material expMat;
-	public Material techMat;
-	public Material softMat;
-	public Material portMat;
-	public Material backMaterial;
-	public DeckScriptable visibleCards;
-	public DeckController DeckController;
-	public TextMeshPro cardText;
+	[Header("PROPERTIES")]
+	[Range(0, 2), SerializeField] private int myIndex;
+	[SerializeField] private MeshRenderer meshRenderer;
 
-	[Range(0,2)]
-	public int myIndex;
+	[Header("MATERIALS")]
+	[SerializeField] private Material expMat;
+	[SerializeField] private Material techMat;
+	[SerializeField] private Material softMat;
+	[SerializeField] private Material portMat;
+	[SerializeField] private Material minigameMat;
+	[SerializeField] private Material backMaterial;
+
+	[Header("GLOBAL VARIABLES")]
+	[SerializeField] private DeckScriptable visibleCards;
+	[SerializeField] private DeckController DeckController;
+
+	[Header("UI COMPONENTS")]
+	[SerializeField] private TextMeshPro reqCardText;
+	[SerializeField] private TextMeshPro goodText;
+	[SerializeField] private TextMeshPro badText;
+
 
 	private void Start()
 	{
@@ -29,51 +39,75 @@ public class CardGOUpdater : MonoBehaviour
 	private void ChangeCardVisuals()
 	{
 		CardScriptable card = visibleCards.Deck[myIndex];
-		
 
-		if(card.MyCardType == CardType.RequirementEffect)
+		switch (card.MyCardType)
 		{
-			CartaRequerimiento c = (CartaRequerimiento)card;
-
-			switch (c.RequirementName.RequirementName)
-			{
-				case "Experiencia":
-					ChangeMaterial(expMat);
-					break;
-
-				case "Portfolio":
-					ChangeMaterial(portMat);
-					break;
-
-				case "Soft Skill":
-					ChangeMaterial(softMat);
-					break;
-
-				default:
-					ChangeMaterial(techMat);
-					break;
-			}
-
-			string cText = "";
-			if (c.Operation == Operation.Add)
-				cText += '+';
-			if (c.Operation == Operation.Multiply)
-				cText += 'x';
-			if (c.Operation == Operation.Substract)
-				cText += '-';
-
-			cText += c.OpValue.ToString();
-
-			cardText.text = cText;
+			case CardType.RequirementEffect:
+				RequirementCardVisuals(card);
+				break;
+			case CardType.MiniGame:
+				MinigameCardVisuals(card);
+				break;
 		}
 	}
+
 
 	public void ResetCardVisuals()
 	{
 		ChangeMaterial(backMaterial);
-		cardText.text = "";
+		reqCardText.text = "";
+		goodText.text = "";
+		badText.text = "";
 	}
 
+	private void RequirementCardVisuals(CardScriptable card)
+	{
+		CartaRequerimiento c = (CartaRequerimiento)card;
+
+		switch (c.RequirementName.RequirementName)
+		{
+			case "Experiencia":
+				ChangeMaterial(expMat);
+				break;
+
+			case "Portfolio":
+				ChangeMaterial(portMat);
+				break;
+
+			case "Soft Skill":
+				ChangeMaterial(softMat);
+				break;
+
+			default:
+				ChangeMaterial(techMat);
+				break;
+		}
+
+		reqCardText.text = OperationToText(c.Operation, c.OpValue);
+	}
+	private void MinigameCardVisuals(CardScriptable card)
+	{
+		CartaMinijuego c = (CartaMinijuego)card;
+
+		ChangeMaterial(minigameMat);
+
+		goodText.text = OperationToText(c.GoodOperation, c.GoodValue);
+		badText.text = OperationToText(c.BadOperation, c.BadValue);
+	}
+	private string OperationToText(Operation op, int value)
+	{
+		string cText = "";
+		if (op == Operation.Add)
+			cText += '+';
+		if (op == Operation.Multiply)
+			cText += 'x';
+		if (op == Operation.Substract)
+			cText += '-';
+
+		cText += value.ToString();
+
+		return cText;
+	}
 	private void ChangeMaterial(Material mat)
 	{
 		var mats = meshRenderer.materials;
