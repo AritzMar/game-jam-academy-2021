@@ -19,7 +19,6 @@ public class IntVariable : ScriptableObject
 	}
 
 	private void OnEnable() => CurrentValue = initialValue;
-	//private void OnValidate() => OnValueChange?.Invoke();
 
 	public void ResetCurrentToInitial() => CurrentValue = initialValue;
 }

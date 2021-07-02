@@ -28,6 +28,6 @@ public class CartaControl : CardScriptable
 		}
 
 		if (controlType == ControlType.AddTime)
-			TurnTime.CurrentValue += 5;
+			TurnTime.ResetCurrentToInitial();
 	}
 }

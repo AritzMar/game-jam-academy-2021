@@ -38,6 +38,8 @@ public class CardGOUpdater : MonoBehaviour
 
 	private void ChangeCardVisuals()
 	{
+		ResetCardVisuals();
+
 		CardScriptable card = visibleCards.Deck[myIndex];
 
 		switch (card.MyCardType)
@@ -58,6 +60,16 @@ public class CardGOUpdater : MonoBehaviour
 		reqCardText.text = "";
 		goodText.text = "";
 		badText.text = "";
+	}
+	private void ControlCardVisuals(CardScriptable card)
+	{
+		CartaControl c = (CartaControl)card;
+		ChangeMaterial(backMaterial);
+		Debug.Log(c.ControlType);
+		if (c.ControlType == ControlType.ClampAll)
+			reqCardText.text = "Clamp";
+		if (c.ControlType == ControlType.AddTime)
+			reqCardText.text = "Time +5";
 	}
 
 	private void RequirementCardVisuals(CardScriptable card)
