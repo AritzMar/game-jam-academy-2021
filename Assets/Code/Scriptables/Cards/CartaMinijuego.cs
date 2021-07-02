@@ -46,7 +46,7 @@ public class CartaMinijuego : CardScriptable
 	{
 		Debug.Log("2");
 		performOperation(GoodOperation, GoodValue, goodName);
-			UpdateDifficult();
+		UpdateDifficult();
 	}
 
 	public void BadEffect()

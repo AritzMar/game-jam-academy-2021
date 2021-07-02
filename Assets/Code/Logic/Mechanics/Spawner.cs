@@ -3,44 +3,65 @@ using UnityEngine;
 
 namespace Chtulhitos.Mechanics
 {
-    public class Spawner : MonoBehaviour
-    {
-        public FloatVariable SpawnSpeed;
-        public float SpawnSize;
-        public Transform FinishTarget;
-        public GameObject ObjectToSpawn;
+	public class Spawner : MonoBehaviour
+	{
+		public FloatVariable SpawnSpeed;
+		public float SpawnSize;
+		public Transform FinishTarget;
+		public GameObject ObjectToSpawn;
+		public IntVariable difficult; 
 
-        private IEnumerator spawnCorrutine;
+		private IEnumerator spawnCorrutine;
+		private int times;
 
-        private void Start()
-        {
-            spawnCorrutine = PerformSpawn();
-        }
+		private void OnEnable()
+		{
+			difficult.OnValueChange += (_) => OnDifficultChange();
+		}
 
-        public void StartSpawn()
-        {
-            StartCoroutine(spawnCorrutine);
-        }
+		private void OnDisable()
+		{
+			difficult.OnValueChange -= (_) => OnDifficultChange();
+		}
 
-        public void StopSpawn()
-        {
-            StopCoroutine(spawnCorrutine);
-        }
+		private void Start()
+		{
+			spawnCorrutine = PerformSpawn();
+		}
 
-        private IEnumerator PerformSpawn()
-        {
-            while(true)
-            {
-                var instanceObject = Instantiate(ObjectToSpawn, transform.position, Quaternion.identity);
-                ISpawnable spawnObject = instanceObject.GetComponent<ISpawnable>();
-                spawnObject.PositionToGo = FinishTarget.position;
+		public void StartSpawn()
+		{
+			StartCoroutine(spawnCorrutine);
+		}
 
-                instanceObject.transform.SetParent(transform);
-                instanceObject.transform.localPosition = new Vector3(Random.Range(-(SpawnSize / 2f), (SpawnSize / 2f)), 0f, 0f);
+		public void StopSpawn()
+		{
+			StopCoroutine(spawnCorrutine);
+		}
 
-                yield return new WaitForSeconds(SpawnSpeed.CurrentValue);
-            }                                           
-        }
-    }
+		private IEnumerator PerformSpawn()
+		{
+			while(true)
+			{
+				var instanceObject = Instantiate(ObjectToSpawn, transform.position, Quaternion.identity);
+				ISpawnable spawnObject = instanceObject.GetComponent<ISpawnable>();
+				spawnObject.PositionToGo = FinishTarget.position;
+
+				instanceObject.transform.SetParent(transform);
+				instanceObject.transform.localPosition = new Vector3(Random.Range(-(SpawnSize / 2f), (SpawnSize / 2f)), 0f, 0f);
+
+				yield return new WaitForSeconds(SpawnSpeed.CurrentValue);
+			}
+		}
+
+		private void OnDifficultChange()
+		{
+			times += 1;
+			SpawnSpeed.CurrentValue -= Mathf.Pow(0.3f, times);
+			SpawnSpeed.CurrentValue = Mathf.Clamp(SpawnSpeed.CurrentValue, 0.4f, 1.5f);
+			Debug.Log(SpawnSpeed.CurrentValue);
+		}
+
+	}
 }
 
