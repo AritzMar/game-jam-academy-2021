@@ -53,26 +53,24 @@ namespace Chtulhitos.Mechanics
 			Vector3 startPointLocation = new Vector3(startPoint.position.x, transform.position.y, startPoint.position.z);
 			transform.position = startPointLocation;
 			agent.destination = startPointLocation;
-			PlaySoundResources.PlaySound_String("GJA_Fail_4");
 		}
 
 		public void Hit(int damage)
 		{
 			// FALTA QUITAR LA "VIDA"
-			if(selectedCard != null)
+			if(selectedCard?.SelectedCard != null)
 			{
-				if (selectedCard.SelectedCard.MyCardType == CardType.MiniGame)
+				if (selectedCard.MyType == CardType.MiniGame)
 				{
 					CartaMinijuego c = (CartaMinijuego)selectedCard.SelectedCard;
 					c.BadEffect();
-					selectedCard.SelectedCard = null;
 				}
 			}
-			selectedCard = null;
+			selectedCard.SelectedCard = null;
 			DeactivateHeadGO();
 			deadEffect.transform.position = transform.position;
 			deadEffect.Emit(10);
-			transform.position = startPoint.position;
+			TransportToStartPoint();
 			PlaySoundResources.PlaySound_String("GJA_Fail_4");
 		}
 
