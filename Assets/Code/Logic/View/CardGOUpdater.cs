@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using DG.Tweening;
 using Chtulhitos.Mechanics;
 
 public class CardGOUpdater : MonoBehaviour
@@ -14,6 +15,7 @@ public class CardGOUpdater : MonoBehaviour
 	[SerializeField] private Material softMat;
 	[SerializeField] private Material portMat;
 	[SerializeField] private Material minigameMat;
+	[SerializeField] private Material timeMat;
 	[SerializeField] private Material backMaterial;
 
 	[Header("GLOBAL VARIABLES")]
@@ -22,11 +24,9 @@ public class CardGOUpdater : MonoBehaviour
 
 	[Header("UI COMPONENTS")]
 	[SerializeField] private TextMeshPro reqCardText;
-	[SerializeField] private TextMeshPro goodText;
-	[SerializeField] private TextMeshPro badText;
+	private Tween textEffectTween;
 
-
-	private void Start()
+	private void OnEnable()
 	{
 		if(myIndex == 0)
 			DeckController.OnFirstCardChange += () => ChangeCardVisuals();
@@ -35,6 +35,18 @@ public class CardGOUpdater : MonoBehaviour
 		if (myIndex == 2)
 			DeckController.OnThirdCardChange += () => ChangeCardVisuals();
 	}
+
+
+	private void OnDisable()
+	{
+		if (myIndex == 0)
+			DeckController.OnFirstCardChange -= () => ChangeCardVisuals();
+		if (myIndex == 1)
+			DeckController.OnSecondCardChange -= () => ChangeCardVisuals();
+		if (myIndex == 2)
+			DeckController.OnThirdCardChange -= () => ChangeCardVisuals();
+	}
+
 
 	private void ChangeCardVisuals()
 	{
@@ -50,6 +62,9 @@ public class CardGOUpdater : MonoBehaviour
 			case CardType.MiniGame:
 				MinigameCardVisuals(card);
 				break;
+			case CardType.Control:
+				ControlCardVisuals(card);
+				break;
 		}
 	}
 
@@ -58,18 +73,17 @@ public class CardGOUpdater : MonoBehaviour
 	{
 		ChangeMaterial(backMaterial);
 		reqCardText.text = "";
-		goodText.text = "";
-		badText.text = "";
 	}
+
 	private void ControlCardVisuals(CardScriptable card)
 	{
 		CartaControl c = (CartaControl)card;
-		ChangeMaterial(backMaterial);
-		Debug.Log(c.ControlType);
+		ChangeMaterial(timeMat);
+
 		if (c.ControlType == ControlType.ClampAll)
 			reqCardText.text = "Clamp";
 		if (c.ControlType == ControlType.AddTime)
-			reqCardText.text = "Time +5";
+			reqCardText.text = "";
 	}
 
 	private void RequirementCardVisuals(CardScriptable card)
@@ -101,20 +115,36 @@ public class CardGOUpdater : MonoBehaviour
 	{
 		CartaMinijuego c = (CartaMinijuego)card;
 
-		ChangeMaterial(minigameMat);
+		reqCardText.text = OperationToText(c.GoodOperation, c.GoodValue);
+		switch (c.GoodName.RequirementName)
+		{
+			case "Experiencia":
+				ChangeMaterial(minigameMat, expMat);
+				break;
 
-		goodText.text = OperationToText(c.GoodOperation, c.GoodValue);
-		badText.text = OperationToText(c.BadOperation, c.BadValue);
+			case "Portfolio":
+				ChangeMaterial(minigameMat, portMat);
+				break;
+
+			case "Soft Skill":
+				ChangeMaterial(minigameMat, softMat);
+				break;
+
+			default:
+				ChangeMaterial(minigameMat, techMat);
+				break;
+		}
 	}
+
 	private string OperationToText(Operation op, int value)
 	{
 		string cText = "";
-		if (op == Operation.Add)
-			cText += '+';
-		if (op == Operation.Multiply)
-			cText += 'x';
-		if (op == Operation.Substract)
-			cText += '-';
+		//if (op == Operation.Add)
+		//	cText += '+';
+		//if (op == Operation.Multiply)
+		//	cText += 'x';
+		//if (op == Operation.Substract)
+		//	cText += '-';
 
 		cText += value.ToString();
 
@@ -125,6 +155,13 @@ public class CardGOUpdater : MonoBehaviour
 		var mats = meshRenderer.materials;
 		mats[0] = mat;
 		mats[1] = mat;
+		meshRenderer.materials = mats;
+	}
+	private void ChangeMaterial(Material mat, Material mat2)
+	{
+		var mats = meshRenderer.materials;
+		mats[0] = mat;
+		mats[1] = mat2;
 		meshRenderer.materials = mats;
 	}
 }

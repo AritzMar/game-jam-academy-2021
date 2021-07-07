@@ -9,11 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc293cfb1546cda46b191b541d7bb8ad, type: 3}
-  m_Name: R_Portfolio +1
+  m_Script: {fileID: 11500000, guid: 08c406ce951d9734daf92ba9d61ff3f3, type: 3}
+  m_Name: MiniG_Balls_Experience
   m_EditorClassIdentifier: 
   playerContainer: {fileID: 11400000, guid: 179d9546bbd607f429b0a62af4ed3956, type: 2}
   bossContainer: {fileID: 11400000, guid: 049c3e0124558ef4687fb0e7fba8c277, type: 2}
-  operation: 0
-  opValue: 1
-  requirementName: {fileID: 11400000, guid: bb8697dd9fc2b294d8a209b05032d546, type: 2}
+  goodOperation: 0
+  goodValue: 6
+  goodName: {fileID: 11400000, guid: cce62ce311b97834e8ad20b06b130e2b, type: 2}
+  miniGameDifficult: {fileID: 11400000, guid: b6e09ef7f83add64ebef6a951205094b, type: 2}

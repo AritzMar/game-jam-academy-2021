@@ -6,7 +6,7 @@ public class IntVariable : ScriptableObject
 	public System.Action<int> OnValueChange { get; set; }
 
 	[SerializeField] private int initialValue;
-	private int currentValue;
+	[SerializeField] private int currentValue;
 
 	public int CurrentValue
 	{

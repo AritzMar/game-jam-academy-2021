@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: p_Portfolio
   m_EditorClassIdentifier: 
   initialValue: 0
+  currentValue: 0
   minValue: 8
   maxValue: 15
   requirementName: {fileID: 11400000, guid: bb8697dd9fc2b294d8a209b05032d546, type: 2}

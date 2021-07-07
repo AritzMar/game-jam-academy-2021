@@ -6,20 +6,22 @@ using Chtulhitos.Mechanics;
 [CreateAssetMenu(fileName = "New Control Card", menuName = "GJ/Cards/Minigame")]
 public class CartaMinijuego : CardScriptable
 {
-	[Header("VARIABLES AFECTADAS")]
-	[SerializeField] private List<RequirementTypeScriptable> requirementNames;
+	//[Header("VARIABLES AFECTADAS")]
+	//[SerializeField] private List<RequirementTypeScriptable> requirementNames;
 
 	// Efecto positivo
 	[Header("EFFECTO POSITIVO")]
 	[SerializeField] private Operation goodOperation;
 	[SerializeField] private int goodValue;
-	private RequirementTypeScriptable goodName;
+	[SerializeField] private RequirementTypeScriptable goodName;
+	public RequirementTypeScriptable GoodName { get => goodName; }
 
 	// Efecto adverso
-	[Header("EFFECTO NEGATIVO")]
-	[SerializeField] private Operation badOperation;
-	[SerializeField] private int badValue;
-	private RequirementTypeScriptable badName;
+	//[Header("EFFECTO NEGATIVO")]
+	//[SerializeField] private Operation badOperation;
+	//[SerializeField] private int badValue;
+	//private RequirementTypeScriptable badName;
+	//public RequirementTypeScriptable BadName { get => badName; }
 
 	// Minijuego sobre el que aplicar el +1 de dificultad
 	[Header("VARIABLE DEL MINIJUEGO AFECTADA")]
@@ -27,8 +29,8 @@ public class CartaMinijuego : CardScriptable
 
 	public Operation GoodOperation { get => goodOperation; set => goodOperation = value; }
 	public int GoodValue { get => goodValue; set => goodValue = value; }
-	public Operation BadOperation { get => badOperation; set => badOperation = value; }
-	public int BadValue { get => badValue; set => badValue = value; }
+	//public Operation BadOperation { get => badOperation; set => badOperation = value; }
+	//public int BadValue { get => badValue; set => badValue = value; }
 
 
 	private void OnEnable()
@@ -36,11 +38,11 @@ public class CartaMinijuego : CardScriptable
 		MyCardType = CardType.MiniGame;
 	}
 
-	private void Awake()
-	{
-		goodName = requirementNames[Random.Range(0, requirementNames.Count)];
-		badName = requirementNames[Random.Range(0, requirementNames.Count)];
-	}
+	//private void Awake()
+	//{
+	//	goodName = requirementNames[Random.Range(0, requirementNames.Count)];
+	//	badName = requirementNames[Random.Range(0, requirementNames.Count)];
+	//}
 
 	public override void Effect()
 	{
@@ -49,11 +51,11 @@ public class CartaMinijuego : CardScriptable
 		UpdateDifficult();
 	}
 
-	public void BadEffect()
-	{
-		Debug.Log("1");
-		performOperation(BadOperation, badValue, badName);
-	}
+	//public void BadEffect()
+	//{
+	//	Debug.Log("1");
+	//	performOperation(BadOperation, badValue, badName);
+	//}
 
 
 	private void performOperation(Operation op, int val, RequirementTypeScriptable reqName)

@@ -24,14 +24,6 @@ namespace Chtulhitos.Mechanics
 			private set { speed = value; }
 		}
 
-		private void Start() 
-		{
-			//agent.speed = Speed;
-			//agent.angularSpeed = 360 * Mathf.Deg2Rad * speed;
-			//agent.autoBraking = true;
-			//agent.acceleration = 1;
-		}
-
 		void Update()
 		{
 			agent.speed = Mathf.Clamp(agent.speed, 0, speed);
@@ -50,6 +42,7 @@ namespace Chtulhitos.Mechanics
 
 		public void TransportToStartPoint()
 		{
+			selectedCard.SelectedCard = null;
 			Vector3 startPointLocation = new Vector3(startPoint.position.x, transform.position.y, startPoint.position.z);
 			transform.position = startPointLocation;
 			agent.destination = startPointLocation;
@@ -57,60 +50,65 @@ namespace Chtulhitos.Mechanics
 
 		public void Hit(int damage)
 		{
-			// FALTA QUITAR LA "VIDA"
-			if(selectedCard?.SelectedCard != null)
-			{
-				if (selectedCard.MyType == CardType.MiniGame)
-				{
-					CartaMinijuego c = (CartaMinijuego)selectedCard.SelectedCard;
-					c.BadEffect();
-				}
-			}
-			selectedCard.SelectedCard = null;
+			OnHit?.Invoke();
 			DeactivateHeadGO();
 			deadEffect.transform.position = transform.position;
 			deadEffect.Emit(10);
-			TransportToStartPoint();
 			PlaySoundResources.PlaySound_String("GJA_Fail_4");
+			// TODO: Sustituir por el efecto que deje claro que has muerto
+			TransportToStartPoint();
 		}
 
 		public void ActivateHeadGO(int cardIndex)
 		{
 			CardScriptable card = visibleCards.Deck[cardIndex];
+			string reqName = "";
 
 			if (card.MyCardType == CardType.RequirementEffect)
 			{
 				CartaRequerimiento c = (CartaRequerimiento)card;
+				reqName = c.RequirementName.RequirementName;
+			}
+			else if(card.MyCardType == CardType.MiniGame)
+			{
+				CartaMinijuego c = (CartaMinijuego)card;
+				reqName = c.GoodName.RequirementName;
+			}
+			else if (card.MyCardType == CardType.Control)
+			{
+				reqName = "Time";
+			}
 
-				DeactivateHeadGO();
+			DeactivateHeadGO();
 				
-				switch (c.RequirementName.RequirementName)
-				{
-					case "Experiencia":
-						transform.GetChild(3).gameObject.SetActive(true);
-						break;
+			switch (reqName)
+			{
+				case "Experiencia":
+					transform.GetChild(3).gameObject.SetActive(true);
+					break;
 
-					case "Portfolio":
-						transform.GetChild(2).gameObject.SetActive(true);
-						break;
+				case "Portfolio":
+					transform.GetChild(2).gameObject.SetActive(true);
+					break;
 
-					case "Soft Skill":
-						transform.GetChild(0).gameObject.SetActive(true);
-						break;
+				case "Soft Skill":
+					transform.GetChild(0).gameObject.SetActive(true);
+					break;
 
-					default:
-						transform.GetChild(1).gameObject.SetActive(true);
-						break;
-				}
+				case "Time":
+					transform.GetChild(4).gameObject.SetActive(true);
+					break;
+
+				default:
+					transform.GetChild(1).gameObject.SetActive(true);
+					break;
 			}
 		}
 
 		public void DeactivateHeadGO()
 		{
 			for (int i = 0; i < transform.childCount - 1; i++)
-			{
 				transform.GetChild(i).gameObject.SetActive(false);
-			}
 		}
 	}
 }

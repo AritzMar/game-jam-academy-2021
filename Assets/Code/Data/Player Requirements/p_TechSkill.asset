@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: p_TechSkill
   m_EditorClassIdentifier: 
   initialValue: 0
+  currentValue: 0
   minValue: 8
   maxValue: 15
   requirementName: {fileID: 11400000, guid: c9f44b7dda01aba43930126dc7c027cc, type: 2}
