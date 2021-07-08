@@ -59,9 +59,6 @@ namespace Chtulhitos.Mechanics
 			times += 1;
 			SpawnSpeed.CurrentValue -= Mathf.Pow(0.3f, times);
 			SpawnSpeed.CurrentValue = Mathf.Clamp(SpawnSpeed.CurrentValue, 0.4f, 1.5f);
-			Debug.Log(SpawnSpeed.CurrentValue);
 		}
-
 	}
 }
-

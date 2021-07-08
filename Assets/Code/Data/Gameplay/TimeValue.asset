@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: TimeValue
   m_EditorClassIdentifier: 
   initialValue: 30
+  currentValue: 30

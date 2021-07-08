@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: b_Experencia
   m_EditorClassIdentifier: 
   initialValue: 0
+  currentValue: 8
   minValue: 8
-  maxValue: 15
+  maxValue: 14
   requirementName: {fileID: 11400000, guid: cce62ce311b97834e8ad20b06b130e2b, type: 2}

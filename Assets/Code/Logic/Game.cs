@@ -3,50 +3,55 @@ using UnityEngine;
 
 public class Game : MonoBehaviour
 {
-    [SerializeField] private GameStates gameStates;
-    [SerializeField] private Round round;
-    [SerializeField] private Flow flow;
-    [SerializeField] private IntVariable timeForBreak;
+	[SerializeField] private GameStates gameStates;
+	[SerializeField] private Round round;
+	[SerializeField] private Flow flow;
+	[SerializeField] private IntVariable timeForBreak;
 
-    private IEnumerator Start()
-    {
-        
-        PerformState("Starting");
+	public void RestartGame()
+	{
+		StartCoroutine(Start());
+	}
 
-        yield return new WaitUntil(() => flow.GetFlowModifierByName("Tutorial").Performed);
+	private IEnumerator Start()
+	{
+		PerformState("Starting");
 
-        PerformState("Waiting");
+		//yield return new WaitUntil(() => flow.GetFlowModifierByName("Tutorial").Performed);
 
-        yield return new WaitUntil(() => flow.GetFlowModifierByName("Answers").Performed);
+		PerformState("Waiting");
 
-        yield return StartCoroutine(RoundLoop());
+		yield return new WaitUntil(() => flow.GetFlowModifierByName("Answers").Performed);
 
-        PerformState("Finished");
-    }
+		yield return StartCoroutine(RoundLoop());
 
-    private IEnumerator RoundLoop()
-    {
-        if(round.CurrentRound == round.MaxRound)
-            yield break;
+		PerformState("Finished");
+	}
 
-        while(round.CurrentRound < round.MaxRound)
-        {
-            PerformState("Playing");
-            
-            yield return new WaitUntil(() => flow.GetFlowModifierByName("Ended").Performed);
-            PerformState("EndTurn");
+	private IEnumerator RoundLoop()
+	{
+		if(round.CurrentRound == round.MaxRound)
+			yield break;
 
-            round.CurrentRound++;
+		while(round.CurrentRound < round.MaxRound)
+		{
+			PerformState("Playing");
+			
+			yield return new WaitUntil(() => flow.GetFlowModifierByName("Ended").Performed);
+			PerformState("EndTurn");
 
-            PerformState("Waiting");
-            yield return new WaitUntil(() => flow.GetFlowModifierByName("Answers").Performed);
+			round.CurrentRound++;
 
-        }
-    }
+			PerformState("Waiting");
+			yield return new WaitUntil(() => flow.GetFlowModifierByName("Answers").Performed);
 
-    public void PerformState(string state)
-    {
-        GameState tempLogic = gameStates.ObtainEventWithLogic(state);
-        tempLogic?.Raise(state);
-    }
+		}
+	}
+
+	public void PerformState(string state)
+	{
+		GameState tempLogic = gameStates.ObtainEventWithLogic(state);
+		Debug.Log(tempLogic);
+		tempLogic?.Raise(state);
+	}
 }

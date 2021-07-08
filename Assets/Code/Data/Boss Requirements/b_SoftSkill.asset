@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: b_SoftSkill
   m_EditorClassIdentifier: 
   initialValue: 0
+  currentValue: 12
   minValue: 8
-  maxValue: 15
+  maxValue: 14
   requirementName: {fileID: 11400000, guid: c6b80ad9c5566ef47a2fbf4b2ac3c328, type: 2}

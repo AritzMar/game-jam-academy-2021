@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: BreakTime
   m_EditorClassIdentifier: 
   initialValue: 5
+  currentValue: 5

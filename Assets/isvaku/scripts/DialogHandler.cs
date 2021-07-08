@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 using DG.Tweening;
+using TMPro;
 
 public class DialogHandler : MonoBehaviour
 {
@@ -26,7 +26,7 @@ public class DialogHandler : MonoBehaviour
 			Panel.transform.DOScale(Vector3.one, 2f);
 		}
 
-		while(dialogCount < 3)
+		while(dialogCount < dialogMax)
 		{
 			List<string> obtainedDialogs = Library.GetDialogsBySituation(condition);
 			DialogTextUI.text = obtainedDialogs[Random.Range(0, obtainedDialogs.Count)];

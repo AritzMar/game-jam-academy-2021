@@ -4,7 +4,6 @@ using UnityEngine;
 public class Timer : MonoBehaviour
 {
 	[SerializeField] private IntVariable timeToDo;
-	[SerializeField] private IntVariable roundTime;
 	[SerializeField] private FlowHandler flowHandler;
 
 	private IEnumerator TimeCorroutine;
@@ -22,6 +21,8 @@ public class Timer : MonoBehaviour
 
 	public void StopTimer()
 	{
+		timerRunning = false;
+
 		StopCoroutine(TimeCorroutine);
 		timeToDo.ResetCurrentToInitial();
 	}

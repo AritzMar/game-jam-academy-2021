@@ -14,6 +14,9 @@ public class CheckGameCompleted : MonoBehaviour
 	[SerializeField] private RequirementsContainerScriptable playerReq;
 	[SerializeField] private RequirementsContainerScriptable bossReq;
 	[SerializeField] private TextMeshProUGUI endText;
+	[TextArea, SerializeField] private string LoseText;
+	[TextArea, SerializeField] private string WinText;
+	[TextArea, SerializeField] private string EpicWinText;
 
 	public GameEndStatus CheckEnd()
 	{
@@ -38,13 +41,13 @@ public class CheckGameCompleted : MonoBehaviour
 		switch (CheckEnd())
 		{
 			case GameEndStatus.EpicWin:
-				endText.text = "¡Menudo portento! ¿Cómo es que no estás en Google?\n¡Contratadísimo!";
+				endText.text = EpicWinText;
 				break;
 			case GameEndStatus.Win:
-				endText.text = "Iba a enchufar a mi primo, pero tú eres mas apto.\n¡Contratado!";
+				endText.text = WinText;
 				break;
 			case GameEndStatus.Lose:
-				endText.text = "Esto... mejor te llamamos nosotros.";
+				endText.text = LoseText;
 				break;
 		}
 	}

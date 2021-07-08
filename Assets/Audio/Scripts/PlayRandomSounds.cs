@@ -9,6 +9,7 @@ public class PlayRandomSounds : MonoBehaviour
 	private float waitTime = 2;
 	private float counter;
 	private int index = 0;
+
 	private void Update()
 	{
 		counter += Time.deltaTime;

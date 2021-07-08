@@ -10,7 +10,7 @@ public class RoundUI : MonoBehaviour
 
 	 private void Start() 
 	{
-		ChangeRoundText(RoundValue.CurrentRound + 1);
+		ChangeRoundText(RoundValue.CurrentRound);
 	}
 
 	private void OnEnable() 
@@ -25,6 +25,7 @@ public class RoundUI : MonoBehaviour
 
 	private void ChangeRoundText(int round)
 	{
-		RoundLabel.text = round.ToString();
+		if(round < RoundValue.MaxRound)
+			RoundLabel.text = (round + 1).ToString();
 	}
 }

@@ -9,6 +9,7 @@ public class GameStates : ScriptableObject
     {
         public GameState Delegate;
     }
+
     [SerializeField] private GameLogic[] gameLogics;
     
     
