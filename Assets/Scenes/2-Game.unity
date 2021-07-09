@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 23800000, guid: 64178dcc04c365249a6659636c2f3fd1, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: e945a032842390341a070d810426278b, type: 2}
 --- !u!114 &22
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -282,6 +282,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 8144394004079054716}
+          m_TargetAssemblyTypeName: UnityEngine.MonoBehaviour, UnityEngine
+          m_MethodName: StopAllCoroutines
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   GameStates: {fileID: 11400000, guid: 95811a6f22a541a47ba2345299c76618, type: 2}
 --- !u!114 &28
 MonoBehaviour:
@@ -372,6 +384,18 @@ MonoBehaviour:
           m_TargetAssemblyTypeName: Chtulhitos.Mechanics.Torret, Assembly-CSharp
           m_MethodName: SetFollowCondition
           m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 9106278400334218159}
+          m_TargetAssemblyTypeName: UnityEngine.MonoBehaviour, UnityEngine
+          m_MethodName: StopAllCoroutines
+          m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -10670,7 +10694,7 @@ Transform:
   - {fileID: 1885945623}
   - {fileID: 543450653603776540}
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!195 &110064495
 NavMeshAgent:
@@ -10779,6 +10803,34 @@ MonoBehaviour:
           m_TargetAssemblyTypeName: Chtulhitos.Mechanics.Movement, Assembly-CSharp
           m_MethodName: TransportToStartPoint
           m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - State: {fileID: 11400000, guid: 8391747bb21ace5488e0f889dbb982d7, type: 2}
+    Events:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 110064493}
+          m_TargetAssemblyTypeName: Chtulhitos.Mechanics.Movement, Assembly-CSharp
+          m_MethodName: TransportToStartPoint
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 110064493}
+          m_TargetAssemblyTypeName: Chtulhitos.Mechanics.Movement, Assembly-CSharp
+          m_MethodName: ChangeMoveCondition
+          m_Mode: 6
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -17785,7 +17837,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 6
+  m_text: "\t"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 73561e92625ed8b439eb3a2373249354, type: 2}
   m_sharedMaterial: {fileID: -617636719467458821, guid: 86f1b3c0d14919049ad3dde8b31b6c1b, type: 2}
@@ -23472,7 +23524,7 @@ RectTransform:
   m_GameObject: {fileID: 641015615}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 1576182218}
   m_Father: {fileID: 888925503}
@@ -23547,7 +23599,7 @@ MonoBehaviour:
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: Good
+            m_StringArgument: Answer
             m_BoolArgument: 0
           m_CallState: 2
   GameStates: {fileID: 11400000, guid: 95811a6f22a541a47ba2345299c76618, type: 2}
@@ -40503,6 +40555,7 @@ GameObject:
   - component: {fileID: 1100517710}
   - component: {fileID: 1100517711}
   - component: {fileID: 22}
+  - component: {fileID: 1100517712}
   m_Layer: 0
   m_Name: Spawn1
   m_TagString: Untagged
@@ -40518,7 +40571,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1100517709}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: -0.534, y: 0.14, z: -0.01}
+  m_LocalPosition: {x: -0.524, y: 0.14, z: -0.011}
   m_LocalScale: {x: 0.14419661, y: 0.092978746, z: 0.08332175}
   m_Children:
   - {fileID: 1203741374}
@@ -40542,6 +40595,22 @@ MonoBehaviour:
   FinishTarget: {fileID: 1964454679}
   ObjectToSpawn: {fileID: 3686447722283403881, guid: e9d0c7378c7e56a4da826a307955649c, type: 3}
   difficult: {fileID: 11400000, guid: b6e09ef7f83add64ebef6a951205094b, type: 2}
+--- !u!208 &1100517712
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1100517709}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 5.67, y: 1.97, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &1110267500
 GameObject:
   m_ObjectHideFlags: 0
@@ -62711,8 +62780,8 @@ MonoBehaviour:
   deckController: {fileID: 416761745}
   selectedCard: {fileID: 11400000, guid: e9c28ecd78f96e24eba9d4a128a8b888, type: 2}
   myRend: {fileID: 1578207159}
-  activeColor: {r: 0.8962264, g: 0.43543077, b: 0.43543077, a: 1}
-  inactiveColor: {r: 0.43529415, g: 0.8980392, b: 0.51437324, a: 1}
+  activeColor: {r: 0.9150943, g: 0.5481933, b: 0.5481933, a: 1}
+  inactiveColor: {r: 0.51174796, g: 0.9433962, b: 0.58490866, a: 1}
   shuffleText: {fileID: 64533712}
   coolDown: 12
 --- !u!1 &1583977694
@@ -62772,7 +62841,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 6
+  m_text: "\t"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 73561e92625ed8b439eb3a2373249354, type: 2}
   m_sharedMaterial: {fileID: -617636719467458821, guid: 86f1b3c0d14919049ad3dde8b31b6c1b, type: 2}
@@ -78558,7 +78627,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 6
+  m_text: "\t"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 73561e92625ed8b439eb3a2373249354, type: 2}
   m_sharedMaterial: {fileID: -617636719467458821, guid: 86f1b3c0d14919049ad3dde8b31b6c1b, type: 2}
@@ -78753,6 +78822,54 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 11400000, guid: 8cafe2b88b11f7740afa9ddfa0c2d912, type: 2}
+          m_TargetAssemblyTypeName: IntVariable, Assembly-CSharp
+          m_MethodName: ResetCurrentToInitial
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 11400000, guid: b40c9f3f3eeda854a9e17d7f1bea27de, type: 2}
+          m_TargetAssemblyTypeName: IntVariable, Assembly-CSharp
+          m_MethodName: ResetCurrentToInitial
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 11400000, guid: f2bc6e0c9514cdc498afa514681420be, type: 2}
+          m_TargetAssemblyTypeName: IntVariable, Assembly-CSharp
+          m_MethodName: ResetCurrentToInitial
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 11400000, guid: 2d0cf9514ee363c468031e110fa75f95, type: 2}
+          m_TargetAssemblyTypeName: IntVariable, Assembly-CSharp
+          m_MethodName: ResetCurrentToInitial
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   GameStates: {fileID: 11400000, guid: 95811a6f22a541a47ba2345299c76618, type: 2}
 --- !u!4 &1924447167
 Transform:
@@ -78861,6 +78978,7 @@ GameObject:
   - component: {fileID: 1964454679}
   - component: {fileID: 1964454680}
   - component: {fileID: 6128039106783753469}
+  - component: {fileID: 1964454681}
   m_Layer: 0
   m_Name: Spawn2
   m_TagString: Untagged
@@ -78900,6 +79018,22 @@ MonoBehaviour:
   FinishTarget: {fileID: 1100517710}
   ObjectToSpawn: {fileID: 3686447722283403881, guid: e9d0c7378c7e56a4da826a307955649c, type: 3}
   difficult: {fileID: 11400000, guid: b6e09ef7f83add64ebef6a951205094b, type: 2}
+--- !u!208 &1964454681
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1964454678}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 6.17, y: 1.97, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &1972072020
 GameObject:
   m_ObjectHideFlags: 0
@@ -89375,6 +89509,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 543450653254968429}
+  - component: {fileID: 919132149599649496}
   m_Layer: 0
   m_Name: Table
   m_TagString: Untagged
@@ -89382,6 +89517,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!208 &919132149599649496
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132149599649495}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.23, y: 0.125, z: 1.115}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: -2.19, y: 0, z: 0.96}
+  m_TimeToStationary: 0.5
 --- !u!1 &1068040672286902246
 GameObject:
   m_ObjectHideFlags: 0
@@ -92667,13 +92818,45 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StatesEvents:
-  - State: {fileID: 11400000, guid: 578591ec639f6a345b7a784c8b387a7e, type: 2}
+  - State: {fileID: 11400000, guid: 7265eeb9abc057740953748c29aa635a, type: 2}
     Events:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 1360980345480455973}
           m_TargetAssemblyTypeName: MinigameFloor, Assembly-CSharp
           m_MethodName: DoChecking
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - State: {fileID: 11400000, guid: 82661386aa1491a418fb3b85e3c71fb4, type: 2}
+    Events:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1360980345480455973}
+          m_TargetAssemblyTypeName: MinigameFloor, Assembly-CSharp
+          m_MethodName: NotDoChecking
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - State: {fileID: 11400000, guid: 8391747bb21ace5488e0f889dbb982d7, type: 2}
+    Events:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1360980345480455973}
+          m_TargetAssemblyTypeName: MinigameFloor, Assembly-CSharp
+          m_MethodName: NotDoChecking
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -92691,12 +92874,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9181345334047574825}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -24.26, y: 0.19999999, z: -1.644}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -15.23, y: 0.49, z: -1.54}
+  m_LocalScale: {x: 0.5000001, y: 0.5, z: 0.5000001}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!198 &9181345334047574823
 ParticleSystem:

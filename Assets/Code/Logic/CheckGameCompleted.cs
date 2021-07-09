@@ -18,14 +18,31 @@ public class CheckGameCompleted : MonoBehaviour
 	[TextArea, SerializeField] private string WinText;
 	[TextArea, SerializeField] private string EpicWinText;
 
+	private List<string> calledPerfectReqNames = new List<string>();
+	private List<string> calledSuperiorReqNames = new List<string>();
+
 	public GameEndStatus CheckEnd()
 	{
 		List<int> differences = new List<int>();
 		
 		foreach (RequirementScriptable req in playerReq.Requirements)
 		{
-			var other = Array.Find(bossReq.Requirements, r => string.Compare(r.RequirementName.RequirementName, req.RequirementName.RequirementName) == 0);
-			differences.Add(req.CurrentValue - other.CurrentValue);
+			var name = req.RequirementName.RequirementName;
+			var other = Array.Find(bossReq.Requirements, r => string.Compare(r.RequirementName.RequirementName, name) == 0);
+			var diff = req.CurrentValue - other.CurrentValue;
+			differences.Add(diff);
+
+			// Se lanza el evento cuando deja perfecto un req
+			if (diff == 0 && !calledPerfectReqNames.Contains(name))
+			{
+				DialogEvents.OnReqPerfect?.Invoke(name);
+				calledPerfectReqNames.Add(name);
+			}
+			if (diff > 0 && !calledSuperiorReqNames.Contains(name))
+			{
+				DialogEvents.OnReqSobrepasado?.Invoke(name);
+				calledSuperiorReqNames.Add(name);
+			}
 		}
 
 		if (differences.FindAll(r => r == 0).Count == 4)

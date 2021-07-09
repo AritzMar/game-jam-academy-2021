@@ -51,7 +51,6 @@ public class Game : MonoBehaviour
 	public void PerformState(string state)
 	{
 		GameState tempLogic = gameStates.ObtainEventWithLogic(state);
-		Debug.Log(tempLogic);
 		tempLogic?.Raise(state);
 	}
 }

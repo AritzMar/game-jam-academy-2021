@@ -22,9 +22,4 @@ public class Dialog_library : ScriptableObject
         Condition tempCondition = Array.Find(conditions, condition => condition.Situation == situation);
         return tempCondition.Dialogs;
     }
-
-
-
-
-
 }

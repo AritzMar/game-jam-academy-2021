@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8201c3ac765f0444aadf834656be8924, type: 3}
   m_Name: n_TechSkill
   m_EditorClassIdentifier: 
-  _name: ' Tech Skill'
+  _name: Tech Skill

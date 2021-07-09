@@ -1,106 +1,122 @@
 using System.Collections;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.AI;
 
 namespace Chtulhitos.Mechanics
 {
-    public class Torret : MonoBehaviour
-    {
-        public Transform TorretHead;
-        public Transform TorretScope;
-        public Material LaserMaterial;
-        public float RechargingDuration;
-        public Color laserRedColor;
-        public Color laserGreenColor;
-        //public AnimationCurve widthCurve;
-        public IntVariable turretDamage;
+	public class Torret : MonoBehaviour
+	{
+		public Transform TorretHead;
+		public Transform TorretScope;
+		public Material LaserMaterial;
+		public float RechargingDuration;
+		public Color laserRedColor;
+		public Color laserGreenColor;
+		//public AnimationCurve widthCurve;
+		public IntVariable turretDamage;
+		
+		private LineRenderer laserLine;
+		private Transform targetToFollow;
+		private NavMeshAgent agent = null;
+		private Vector3 laserTargetPosition;
+		private Tween colorChangeTween = null;
 
-        private LineRenderer laserLine;
-        private Transform targetToFollow;
-        private bool recharging = true;
-        private bool followTarget = false;
-        public void SetFollowCondition(bool condition) => followTarget = condition;
+		private bool recharging = true;
+		private bool followTarget = false;
+		public void SetFollowCondition(bool condition) => followTarget = condition;
 
-        private void OnEnable() 
-        {
-            MinigameFloor.OnPinPositionIsPlaying += SetTargetToFollow;
-            MinigameFloor.OnPinPositionIdle += Shoot;
-        }
+		private void OnEnable() 
+		{
+			MinigameFloor.OnPinPositionIsPlaying += SetTargetToFollow;
+			MinigameFloor.OnPinPositionIdle += Shoot;
+		}
 
-        public void StartFollowPlayer() 
-        {
-            StartCoroutine(PerformSeekAndDestroy());
-            recharging = false;
-        }
+		public void StartFollowPlayer() 
+		{
+			StartCoroutine(PerformSeekAndDestroy());
+			recharging = false;
+		}
 
-        public void StopFollowPlayer()
-        {
-            StopCoroutine(PerformSeekAndDestroy());
-            laserLine.SetPosition(1, TorretScope.position);
-        }
+		public void StopFollowPlayer()
+		{
+			StopCoroutine(PerformSeekAndDestroy());
+			laserLine?.SetPosition(1, TorretScope.position);
+		}
 
-        private void OnDisable() 
-        {
-            MinigameFloor.OnPinPositionIsPlaying -= SetTargetToFollow;
-            MinigameFloor.OnPinPositionIdle -= Shoot;
-        }
+		private void OnDisable() 
+		{
+			MinigameFloor.OnPinPositionIsPlaying -= SetTargetToFollow;
+			MinigameFloor.OnPinPositionIdle -= Shoot;
+		}
 
-        private void SetTargetToFollow(Transform position)
-        {
-            targetToFollow = position;
+		private void SetTargetToFollow(Transform position)
+		{
+			targetToFollow = position;
 
-            if(laserLine == null)
-                laserLine = gameObject.AddComponent<LineRenderer>();
-            //laserLine.widthCurve = widthCurve;
-            laserLine.startWidth = 0.1f;
-            laserLine.endWidth = 0.1f;
-            laserLine.material = LaserMaterial;
+			if (agent == null)
+				agent = position.GetComponent<NavMeshAgent>();
+			
+			if(laserLine == null)
+				laserLine = gameObject.AddComponent<LineRenderer>();
+			//laserLine.widthCurve = widthCurve;
+			laserLine.startWidth = 0.2f;
+			laserLine.endWidth = 0.2f;
+			laserLine.material = LaserMaterial;
 
-            Vector3[] laserDirection = new Vector3[]{TorretScope.position, TorretScope.position};
-            laserLine.SetPositions(laserDirection);
-            laserLine.useWorldSpace = true;
-        }
+			Vector3[] laserDirection = new Vector3[]{TorretScope.position, TorretScope.position};
+			laserLine.SetPositions(laserDirection);
+			laserLine.useWorldSpace = true;
+		}
 
-        private void Shoot()
-        {
-            if(recharging || !followTarget)
-                return;
+		private void Shoot()
+		{
+			if(recharging || !followTarget)
+				return;
 
-            recharging = true;
+			recharging = true;
 
-            StartCoroutine(PerformShoot());
-            PlaySoundResources.PlaySound_String("GJA_Laser_Shot");
-        }
+			StartCoroutine(PerformShoot());
+		}
 
-        private IEnumerator PerformSeekAndDestroy()
-        {
-            yield return new WaitUntil(() => targetToFollow != null);
+		private IEnumerator PerformSeekAndDestroy()
+		{
+			yield return new WaitUntil(() => targetToFollow != null);
 
-            while(followTarget)
-            {
-                TorretHead.LookAt(targetToFollow);
-                laserLine.SetPosition(0, TorretScope.position);
-                laserLine.SetPosition(1, targetToFollow.position);
-                yield return null;
-            }
-        }
+			while(followTarget)
+			{
+				TorretHead.LookAt(targetToFollow);
+				
+				if(agent.velocity.sqrMagnitude < 0.1f && colorChangeTween == null)
+				{
+					laserLine.enabled = true;
+					LaserMaterial.color = laserGreenColor;
+					laserLine.SetPosition(0, TorretScope.position);
+					laserLine.SetPosition(1, targetToFollow.position);
+					// El 2 es el tiempo que tarda en checkear las posiciones
+					colorChangeTween = LaserMaterial.DOColor(laserRedColor, 1f).SetEase(Ease.InQuart);
+				}
+				else if(agent.velocity.sqrMagnitude > 0.1f)
+				{
+					laserLine.enabled = false;
+					colorChangeTween.Kill();
+					colorChangeTween = null;
+					LaserMaterial.color = laserGreenColor;
+				}
 
-        private IEnumerator PerformShoot()
-        {
-            float halfRechargingDuration = RechargingDuration / 2;
+				yield return null;
+			}
+		}
 
-            LaserMaterial.DOColor(laserRedColor, halfRechargingDuration);
+		private IEnumerator PerformShoot()
+		{
+			PlaySoundResources.PlaySound_String("GJA_Laser_Shot");
+			
+			targetToFollow.GetComponent<Movement>().Hit(turretDamage.CurrentValue);
 
-            var mov = targetToFollow.GetComponent<Movement>();
-            mov.Hit(turretDamage.CurrentValue);
-            
-            yield return new WaitForSeconds(halfRechargingDuration);
+			yield return new WaitForSeconds(RechargingDuration);
 
-            LaserMaterial.DOColor(laserGreenColor, halfRechargingDuration);
-
-            yield return new WaitForSeconds(halfRechargingDuration);
-
-            recharging = false;
-        }
-    }
+			recharging = false;
+		}
+	}
 }

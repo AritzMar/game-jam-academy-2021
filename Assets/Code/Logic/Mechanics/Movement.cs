@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.AI;
+using System.Collections;
 
 namespace Chtulhitos.Mechanics
 {
@@ -43,6 +44,7 @@ namespace Chtulhitos.Mechanics
 		public void TransportToStartPoint()
 		{
 			selectedCard.SelectedCard = null;
+
 			Vector3 startPointLocation = new Vector3(startPoint.position.x, transform.position.y, startPoint.position.z);
 			transform.position = startPointLocation;
 			agent.destination = startPointLocation;
@@ -51,11 +53,15 @@ namespace Chtulhitos.Mechanics
 		public void Hit(int damage)
 		{
 			OnHit?.Invoke();
+			DialogEvents.OnPlayerGetHit?.Invoke();
+
 			DeactivateHeadGO();
+			
 			deadEffect.transform.position = transform.position;
 			deadEffect.Emit(10);
+			
 			PlaySoundResources.PlaySound_String("GJA_Fail_4");
-			// TODO: Sustituir por el efecto que deje claro que has muerto
+			
 			TransportToStartPoint();
 		}
 

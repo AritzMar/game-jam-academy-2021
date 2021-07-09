@@ -7,14 +7,13 @@ public class Tower_shoot : MonoBehaviour
     public GameObject bulletperfab;
     public Transform shotpoint;
     public Transform player;
-    bool figth=true;
+    bool figth = true;
 
     void Update()
     {
-
-        
         StartCoroutine(esperar());
     }
+
     IEnumerator esperar()
     {
         yield return new WaitForSeconds(3);

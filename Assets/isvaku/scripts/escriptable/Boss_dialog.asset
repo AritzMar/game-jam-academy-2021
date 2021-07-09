@@ -80,3 +80,28 @@ MonoBehaviour:
     - Cuentame tu historia
     - "\xBFPodrias resumir en 20 palabras tu vida laboral?"
     - "Si un idiota habla en el bosque \xBFhace ruido?"
+  - Situation: Soft Skill
+    Dialogs:
+    - SOFT SKILL A FUUUUULLLL
+  - Situation: Tech Skill
+    Dialogs:
+    - LO SUBO AL REPO YA?
+  - Situation: Experiencia
+    Dialogs:
+    - Tienes la habilidad de Elocuencia a nivel LEGENDARIO
+  - Situation: Portfolio
+    Dialogs:
+    - Este portfolio es una autentica maravilla!
+  - Situation: Soft Skill S
+    Dialogs:
+    - Si eres tan bueno.. que haces aqui?
+  - Situation: Tech Skill S
+    Dialogs:
+    - Creo que te pasas de lo que necesitamos en programacion, pero bueno...
+  - Situation: Experiencia S
+    Dialogs:
+    - No se si este puesto se corresponde con tu pedazo nivel de Experiencia
+  - Situation: Portfolio S
+    Dialogs:
+    - Super Portfolio nene
+    - Chequea tremendo Superportfolio de mi man
