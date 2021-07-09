@@ -19,7 +19,6 @@ MonoBehaviour:
     - "\xBFNo huele un poco raro aqu\xED?"
     - "He visto gente m\xE1s r\xE1pida en un asilo de ancianos"
     - "\xBFEstas nervioso?"
-    - "\xBFMe entiendes?"
     - Hay mucha gente en la cola del paro
     - "\xA1Mirame cuando te hablo!"
     - "\xBFNecesitas el dinero de verdad?"
@@ -28,25 +27,19 @@ MonoBehaviour:
     - "\xBFQue estas haciendo?"
     - '!FALTA PORFOLIO!'
     - '!DEBES MEJORAR!'
-    - "Si no me haces caso ver\xE1s"
-    - "\xBFMe estas mirando a mi o al infinito?"
     - "\xBFNo puedes hacerlo mejor?"
     - "\xBFDisfrutas de las vistas?"
-    - "\"Si no te gusta hay m\xE1s gente esperando en la cola del paro"
-    - "\xBFQue problema tienes?"
-    - '"!No me hagas perder el tiempo!'
+    - "Si no te gusta hay m\xE1s gente esperando en la cola del paro"
+    - '!No me hagas perder el tiempo!'
     - "\xBFQue hacemos aqu\xED?"
+    - "Un caf\xE9, esto va para largo"
   - Situation: Good
     Dialogs:
     - "\xBFPuedes contarme m\xE1s?"
     - "Sigue as\xED, vas muy bien"
     - Eso esta muy bien
-    - MUY BIEN
     - Veo que has practicado
-    - Que labia tienes
     - Interesante, sigue
-    - MOLT BE XIQUET
-    - Me gusta tu forma de pensar
     - Me gusta tu forma de pensar
     - Las entrevistas como estas, dan gusto
     - Vamos con la siguiente
@@ -54,9 +47,8 @@ MonoBehaviour:
     - "\xA1Que buen profesional!"
     - Las personas como tu faltan
     - Que amable por tu parte
-    - '!Que buen trabajo!'
-    - Se nota tu valentia
-    - '!Pero que productivo!'
+    - "\xA1Que buen trabajo!"
+    - "\xA1Pero que productivo!"
     - "S\xED, que interesante"
   - Situation: Answer
     Dialogs:
@@ -68,40 +60,38 @@ MonoBehaviour:
     - "\xBFQue tal trabajas en equipo?"
     - "\xBFCon que animal te identificas?"
     - "\xBFQue puedes hacer por la empresa?"
-    - "\xBFCon que insecto te identificas?"
     - "Dime tus puntos d\xE9biles"
     - "\xBFComo puedes ayudar a esta empresa?"
     - "\xBFPor que te gusta nuestra empresa?"
-    - "\xBFQue habilidades blandas tienes?"
     - "\xBFQue habilidades tienes?"
     - "\xBFComo podemos ayudarte profesionalmente?"
     - "\xBFQue formaci\xF3n te gustaria recibir?"
     - Hablame de tus aptitudes
-    - Cuentame tu historia
-    - "\xBFPodrias resumir en 20 palabras tu vida laboral?"
-    - "Si un idiota habla en el bosque \xBFhace ruido?"
   - Situation: Soft Skill
     Dialogs:
-    - SOFT SKILL A FUUUUULLLL
+    - "Tu creatividad encajar\xEDa genial en el equipo"
+    - "\xA1Menuda capacidad de liderazgo!"
+    - "Ser\xE1s el rey de los Umpa Lumpas!"
   - Situation: Tech Skill
     Dialogs:
-    - LO SUBO AL REPO YA?
+    - "Wow, un c\xF3digo  que respeta los principios SOLID"
+    - "Qu\xE9 buen uso de los arm\xF3nicos"
+    - "\xA1Tus habilidades t\xE9cnicas  son perfectas!"
   - Situation: Experiencia
     Dialogs:
-    - Tienes la habilidad de Elocuencia a nivel LEGENDARIO
+    - "Qu\xE9 experiencia, casi podr\xEDas ser t\xFA el Jefe"
+    - "Tienes mucha experiencia \xBFEres el Jefe Infiltrado?"
+    - "Con tu experiencia nos dar\xE1 tiempo a sacar el juego"
   - Situation: Portfolio
     Dialogs:
-    - Este portfolio es una autentica maravilla!
+    - "\xA1Un portfolio incre\xEDble!"
+    - "Semejante portfolio tengo que ense\xF1arselo al resto"
+    - "\xA1Un BSO brutal!"
   - Situation: Soft Skill S
-    Dialogs:
-    - Si eres tan bueno.. que haces aqui?
+    Dialogs: []
   - Situation: Tech Skill S
-    Dialogs:
-    - Creo que te pasas de lo que necesitamos en programacion, pero bueno...
+    Dialogs: []
   - Situation: Experiencia S
-    Dialogs:
-    - No se si este puesto se corresponde con tu pedazo nivel de Experiencia
+    Dialogs: []
   - Situation: Portfolio S
-    Dialogs:
-    - Super Portfolio nene
-    - Chequea tremendo Superportfolio de mi man
+    Dialogs: []

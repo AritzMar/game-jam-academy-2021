@@ -38,11 +38,12 @@ public class CheckGameCompleted : MonoBehaviour
 				DialogEvents.OnReqPerfect?.Invoke(name);
 				calledPerfectReqNames.Add(name);
 			}
-			if (diff > 0 && !calledSuperiorReqNames.Contains(name))
-			{
-				DialogEvents.OnReqSobrepasado?.Invoke(name);
-				calledSuperiorReqNames.Add(name);
-			}
+
+			//if (diff > 0 && !calledSuperiorReqNames.Contains(name))
+			//{
+			//	DialogEvents.OnReqSobrepasado?.Invoke(name);
+			//	calledSuperiorReqNames.Add(name);
+			//}
 		}
 
 		if (differences.FindAll(r => r == 0).Count == 4)
