@@ -50,14 +50,14 @@ namespace Chtulhitos.Mechanics
 			agent.destination = startPointLocation;
 		}
 
-		public void Hit(int damage)
+		public void Hit(int damage, Vector3 position)
 		{
 			OnHit?.Invoke();
 			DialogEvents.OnPlayerGetHit?.Invoke();
 
 			DeactivateHeadGO();
 			
-			deadEffect.transform.position = transform.position;
+			deadEffect.transform.position = position;
 			deadEffect.Emit(10);
 			
 			PlaySoundResources.PlaySound_String("GJA_Fail_4");

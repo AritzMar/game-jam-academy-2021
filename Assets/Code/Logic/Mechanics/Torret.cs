@@ -13,13 +13,11 @@ namespace Chtulhitos.Mechanics
 		public float RechargingDuration;
 		public Color laserRedColor;
 		public Color laserGreenColor;
-		//public AnimationCurve widthCurve;
 		public IntVariable turretDamage;
 		
 		private LineRenderer laserLine;
 		private Transform targetToFollow;
 		private NavMeshAgent agent = null;
-		private Vector3 laserTargetPosition;
 		private Tween colorChangeTween = null;
 
 		private bool recharging = true;
@@ -76,6 +74,9 @@ namespace Chtulhitos.Mechanics
 
 			recharging = true;
 
+			IHiteable hitTarget = targetToFollow.GetComponent<IHiteable>();
+			hitTarget?.Hit(turretDamage.CurrentValue, laserLine.GetPosition(1));
+
 			StartCoroutine(PerformShoot());
 		}
 
@@ -93,7 +94,6 @@ namespace Chtulhitos.Mechanics
 					LaserMaterial.color = laserGreenColor;
 					laserLine.SetPosition(0, TorretScope.position);
 					laserLine.SetPosition(1, targetToFollow.position);
-					// El 2 es el tiempo que tarda en checkear las posiciones
 					colorChangeTween = LaserMaterial.DOColor(laserRedColor, 1f).SetEase(Ease.InQuart);
 				}
 				else if(agent.velocity.sqrMagnitude > 0.1f)
@@ -111,8 +111,6 @@ namespace Chtulhitos.Mechanics
 		private IEnumerator PerformShoot()
 		{
 			PlaySoundResources.PlaySound_String("GJA_Laser_Shot");
-			
-			targetToFollow.GetComponent<Movement>().Hit(turretDamage.CurrentValue);
 
 			yield return new WaitForSeconds(RechargingDuration);
 
