@@ -69,14 +69,17 @@ namespace Chtulhitos.Mechanics
 
 		private void Shoot()
 		{
-			if(recharging || !followTarget)
+			
+
+			if (recharging || !followTarget)
 				return;
 
 			recharging = true;
+			PlaySoundResources.PlaySound_String("GJA_Laser_Shot");
 
 			IHiteable hitTarget = targetToFollow.GetComponent<IHiteable>();
 			hitTarget?.Hit(turretDamage.CurrentValue, laserLine.GetPosition(1));
-
+			
 			StartCoroutine(PerformShoot());
 		}
 
@@ -103,15 +106,12 @@ namespace Chtulhitos.Mechanics
 					colorChangeTween = null;
 					LaserMaterial.color = laserGreenColor;
 				}
-
 				yield return null;
 			}
 		}
 
 		private IEnumerator PerformShoot()
 		{
-			PlaySoundResources.PlaySound_String("GJA_Laser_Shot");
-
 			yield return new WaitForSeconds(RechargingDuration);
 
 			recharging = false;

@@ -11,6 +11,7 @@ public class MusicContainer : MonoBehaviour
     public int beatLookAhead;
 
     [Header("MUSIC SEGMENTS")]
+    public bool aleatoryVolume;
     public AudioSource main_sourcePiano;
     public AudioSource aux_sourcePiano;
     public AudioSource main_sourceMelody, aux_sourceMelody;
@@ -37,6 +38,7 @@ public class MusicContainer : MonoBehaviour
     //CALCULOS TIEMPO
     protected double beatDuration, barDuration, beat_timeControl, nextBeatTime, startTime;
 
+    private static bool hasPlayedFirstLoop;
 
     [SerializeField] private double nextEvent, clipFinishTime, dspTime;
     protected int ouputSelector = 0;    //también lo voy a usar para cotejarlo con el maxPlaySegments
@@ -46,11 +48,24 @@ public class MusicContainer : MonoBehaviour
     private void Awake()
     {
         Get_DataValues();
+        hasPlayedFirstLoop = false;
     }
 	private void Start()
 	{
-        if (playOnStart)
+        DontDestroyOnLoad(gameObject);
+        CheckIfMusicContainerExists();
+
+        if (playOnStart && !hasPlayedFirstLoop)
+		{
+            //Debug.Log(" START State haspPlayedFirst // " + hasPlayedFirstLoop);
             StartMetronome();
+        }
+	}
+    private void CheckIfMusicContainerExists()
+	{
+        GameObject[] activeMusicContainers = GameObject.FindGameObjectsWithTag("MusicContainer");
+        if (activeMusicContainers.Length > 1)
+            Destroy(gameObject);
 	}
 	private void Update()
     {
@@ -122,24 +137,61 @@ public class MusicContainer : MonoBehaviour
             perc.clip = music_segmentsPerc[Random.Range(0, music_segmentsPerc.Length - 1)];
         else
             perc.clip = music_segmentsPerc[indexSegment];
+
         perc.PlayScheduled(nextEvent_temp);
         perc.PlayScheduled(nextEvent_temp);
+        AleatoryVolume();
+        
+    }
+    private void AleatoryVolume()
+	{
+        if (!hasPlayedFirstLoop)
+		{
+            hasPlayedFirstLoop = true;
+            //Debug.Log("has PLayed loop " + hasPlayedFirstLoop); 
+            return;
+        }
+        if (!aleatoryVolume)
+            return;
 
-
+        int melodyRandom = Random.Range(0, 1);
+        if (melodyRandom != 0)
+		{
+            aux_sourceMelody.volume = 0;
+            main_sourceMelody.volume = 0;
+		}
+		else
+		{
+            aux_sourceMelody.volume = 0;
+            main_sourceMelody.volume = 0;
+        }
+            
+        int percRandom = Random.Range(0, 1);
+        if (percRandom != 0)
+        {
+            aux_sourcePerc.volume = 0;
+            aux_sourcePerc.volume = 0;
+        }
+        else
+        {
+            aux_sourcePerc.volume = 0;
+            aux_sourcePerc.volume = 0;
+        }
+        
     }
 
     private void New_IndexSegment() 
     {
         if (!onlyOneSection)
+		{
             indexSegment++;
+            if (indexSegment == music_segmentsPiano.Length - 1)
+            {
+                indexSegment = 0;   
+            }
+        }
         else
             indexSegment = 0;
-        /*
-        if (indexSegment == music_segmentsPiano.Length)
-        {
-            indexSegment = 1;   //para que no toque el 0 que es intro
-        }*/
-        
         clipFinishTime = nextEvent + GetClipLength(indexSegment) - beatDuration - beatDuration * 4; //le quito un bar porque si no no lo mete a tiempo y una parte de la cola
 
     }

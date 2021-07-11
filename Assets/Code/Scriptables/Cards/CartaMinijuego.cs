@@ -46,7 +46,7 @@ public class CartaMinijuego : CardScriptable
 
 	public override void Effect()
 	{
-		Debug.Log("2");
+		//Debug.Log("2");
 		performOperation(GoodOperation, GoodValue, goodName);
 		UpdateDifficult();
 	}

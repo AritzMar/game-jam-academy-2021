@@ -16,6 +16,9 @@ public class ChangeSelectedCardOnCollide : MonoBehaviour
 	{
 		if(other.tag == "Player")
 		{
+			string[] pickCardSounds = new string[] { "GJA_Pick_Card_01", "GJA_Pick_Card_02", "GJA_Pick_Card_03" };
+			PlaySoundResources.PlaySound_String(pickCardSounds[Random.Range(0, pickCardSounds.Length - 1)]);
+
 			selectedCard.SelectedCard = visibleCards.Deck[myIndex];
 			other.GetComponent<Movement>().ActivateHeadGO(myIndex);
 			selectedCard.Position = myIndex;

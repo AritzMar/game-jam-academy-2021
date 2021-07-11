@@ -18,4 +18,8 @@ public class PlaySoundResources : MonoBehaviour
 		AudioClip audio = Resources.Load<AudioClip>("Audio/GJA_SFX_Assets/" + name ) ;
 		source.PlayOneShot(audio);
 	}
+	public static void ChangePitch(float newPitch)
+	{
+		source.pitch = newPitch;
+	}
 }

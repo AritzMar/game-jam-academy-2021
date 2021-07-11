@@ -1,5 +1,6 @@
 using UnityEngine.Events;
 using UnityEngine;
+using System.Collections;
 
 public class ApplyCardEffectOnCollide : MonoBehaviour
 {
@@ -13,6 +14,10 @@ public class ApplyCardEffectOnCollide : MonoBehaviour
 	{
 		if(selectedCard.SelectedCard != null)
 		{
+			StartCoroutine(WaitTOSuccessSound(0.5f));
+			string[] dropSounds = new string[] { "GJA_Drop_Card_1", "GJA_Drop_Card_2", "GJA_Drop_Card_3"};
+			PlaySoundResources.PlaySound_String(dropSounds[Random.Range(0, dropSounds.Length - 1)]);
+
 			selectedCard.SelectedCard.Effect();
 			selectedCard.SelectedCard = null;
 			onEnteredWithCard?.Invoke();
@@ -23,4 +28,11 @@ public class ApplyCardEffectOnCollide : MonoBehaviour
 				gameManager.PerformState("Finished");
 		}
 	}
+	private IEnumerator WaitTOSuccessSound(float waitTime)
+	{
+		string[] successSounds = new string[] { "GJA_Sucess_1", "GJA_Sucess_2", "GJA_Sucess_3", "GJA_Sucess_4" };
+		yield return new WaitForSeconds(waitTime);
+		PlaySoundResources.PlaySound_String(successSounds[Random.Range(0, successSounds.Length - 1)]);
+	}
+
 }

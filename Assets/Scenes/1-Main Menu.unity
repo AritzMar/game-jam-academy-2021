@@ -179,6 +179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c5d2a3a53e5f6d4689c5c4b2b2e1789, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loadTransition: 2
   animFace: {fileID: 225193087}
   playScene: 2-Game
   creditsScene: 3-Credits
@@ -431,6 +432,7 @@ GameObject:
   - component: {fileID: 714165547}
   - component: {fileID: 714165546}
   - component: {fileID: 714165545}
+  - component: {fileID: 714165548}
   m_Layer: 5
   m_Name: credits_button
   m_TagString: Untagged
@@ -485,7 +487,7 @@ MonoBehaviour:
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
+    m_FadeDuration: 0.123
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: 0}
@@ -502,7 +504,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2101886663}
+      - m_Target: {fileID: 920204489}
         m_TargetAssemblyTypeName: PlaySoundResources, Assembly-CSharp
         m_MethodName: PlaySound_String
         m_Mode: 5
@@ -511,7 +513,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: GJA_UI_Escape
+          m_StringArgument: GJA_UI_Click
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 142786235}
@@ -564,6 +566,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 714165543}
   m_CullTransparentMesh: 1
+--- !u!114 &714165548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 714165543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6798d94c9f717541b05ce727f427889, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameOfSound: GJA_UI_Pass_Over
 --- !u!1 &720436826
 GameObject:
   m_ObjectHideFlags: 0
@@ -858,6 +873,147 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 910161089}
   m_CullTransparentMesh: 1
+--- !u!1 &920204488
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 920204491}
+  - component: {fileID: 920204490}
+  - component: {fileID: 920204489}
+  m_Layer: 0
+  m_Name: SoundsUI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &920204489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 920204488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac4188db3f72b1a4f8587e4dfc9b2066, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mixerOuput: {fileID: 0}
+--- !u!82 &920204490
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 920204488}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 41400bbf147e578479155a80477c9004, type: 2}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &920204491
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 920204488}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 615.6137, y: 244.30261, z: 253.03432}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1084435263
 GameObject:
   m_ObjectHideFlags: 0
@@ -1202,6 +1358,7 @@ GameObject:
   - component: {fileID: 1876842050}
   - component: {fileID: 1876842049}
   - component: {fileID: 1876842048}
+  - component: {fileID: 1876842051}
   m_Layer: 5
   m_Name: Ver Tuto
   m_TagString: Untagged
@@ -1256,7 +1413,7 @@ MonoBehaviour:
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
+    m_FadeDuration: 0.123
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: 0}
@@ -1273,7 +1430,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2101886663}
+      - m_Target: {fileID: 920204489}
         m_TargetAssemblyTypeName: PlaySoundResources, Assembly-CSharp
         m_MethodName: PlaySound_String
         m_Mode: 5
@@ -1282,7 +1439,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: GJA_UI_Escape
+          m_StringArgument: GJA_UI_Click
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 142786235}
@@ -1335,6 +1492,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1876842046}
   m_CullTransparentMesh: 1
+--- !u!114 &1876842051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1876842046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6798d94c9f717541b05ce727f427889, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameOfSound: GJA_UI_Pass_Over
 --- !u!1 &1952927616
 GameObject:
   m_ObjectHideFlags: 0
@@ -1347,6 +1517,7 @@ GameObject:
   - component: {fileID: 1952927620}
   - component: {fileID: 1952927619}
   - component: {fileID: 1952927618}
+  - component: {fileID: 1952927621}
   m_Layer: 5
   m_Name: Jugar_button
   m_TagString: Untagged
@@ -1401,7 +1572,7 @@ MonoBehaviour:
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
+    m_FadeDuration: 0.123
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: 0}
@@ -1418,7 +1589,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2101886663}
+      - m_Target: {fileID: 920204489}
         m_TargetAssemblyTypeName: PlaySoundResources, Assembly-CSharp
         m_MethodName: PlaySound_String
         m_Mode: 5
@@ -1427,7 +1598,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: GJA_UI_Escape
+          m_StringArgument: GJA_UI_Click
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 142786235}
@@ -1440,6 +1611,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 2-Game
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2189977386765405189}
+        m_TargetAssemblyTypeName: MusicFadeAndDestroy, Assembly-CSharp
+        m_MethodName: TransitionToGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1952927619
@@ -1480,6 +1663,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1952927616}
   m_CullTransparentMesh: 1
+--- !u!114 &1952927621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1952927616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6798d94c9f717541b05ce727f427889, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameOfSound: GJA_UI_Pass_Over
 --- !u!1 &1997878036
 GameObject:
   m_ObjectHideFlags: 0
@@ -1614,19 +1810,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1997878036}
   m_CullTransparentMesh: 1
---- !u!114 &2101886663
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2189977386765405188}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac4188db3f72b1a4f8587e4dfc9b2066, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mixerOuput: {fileID: 0}
 --- !u!82 &2101886664
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1858,14 +2041,29 @@ GameObject:
   - component: {fileID: 5467152572020719896}
   - component: {fileID: 2433389387615842751}
   - component: {fileID: 2101886664}
-  - component: {fileID: 2101886663}
+  - component: {fileID: 2189977386765405189}
   m_Layer: 0
   m_Name: MusicContainer
-  m_TagString: Untagged
+  m_TagString: MusicContainer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &2189977386765405189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2189977386765405188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b426e33300102bc469a216370ed0c82a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transitionTime: 1.8
+  musicMute: {fileID: 1154690105975814542, guid: 32806795c85f22d468a12be8f8699fad, type: 2}
+  musicUp: {fileID: 24500006, guid: 32806795c85f22d468a12be8f8699fad, type: 2}
 --- !u!114 &2433389387615842751
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1881,6 +2079,7 @@ MonoBehaviour:
   playOnStart: 1
   bpm: 130
   beatLookAhead: 3
+  aleatoryVolume: 1
   main_sourcePiano: {fileID: 5455052456860374809}
   aux_sourcePiano: {fileID: 5402203179170656794}
   main_sourceMelody: {fileID: 7365838005530259357}
@@ -1890,7 +2089,7 @@ MonoBehaviour:
   main_sourcePercFinal: {fileID: 6907063999403926910}
   aux_sourcePercFinal: {fileID: 2683010772837554596}
   beatsPerBar: 0
-  onlyOneSection: 0
+  onlyOneSection: 1
   music_segmentsPiano:
   - {fileID: 8300000, guid: a19cb423cbf318844b26a8599cb04933, type: 3}
   music_segmentsMelody:

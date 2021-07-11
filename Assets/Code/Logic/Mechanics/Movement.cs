@@ -60,9 +60,14 @@ namespace Chtulhitos.Mechanics
 			deadEffect.transform.position = position;
 			deadEffect.Emit(10);
 			
-			PlaySoundResources.PlaySound_String("GJA_Fail_4");
-			
+			StartCoroutine(WaitFailSound(0.2f));
 			TransportToStartPoint();
+		}
+		public IEnumerator WaitFailSound(float waitTime)
+		{
+			string[] failSounds = new string[] { "GJA_Fail_1", "GJA_Fail_2", "GJA_Fail_3", "GJA_Fail_4" };
+			yield return new WaitForSeconds(waitTime);
+			PlaySoundResources.PlaySound_String(failSounds[Random.Range(0, failSounds.Length - 1)]);
 		}
 
 		public void ActivateHeadGO(int cardIndex)

@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 namespace Chtulhitos.Mechanics
 {
@@ -22,6 +23,12 @@ namespace Chtulhitos.Mechanics
 		{
 			IHiteable hitTarget = other.GetComponent<IHiteable>();
 			hitTarget?.Hit(ballDamage.CurrentValue, other.transform.position);
+			
+			if (other.tag == "Player")
+			{
+				PlaySoundResources.ChangePitch(1.3f);
+				PlaySoundResources.PlaySound_String("GJA_UI_Pass_Over");
+			}
 		}
 	}
 }

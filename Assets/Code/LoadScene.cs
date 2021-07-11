@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 public class LoadScene : MonoBehaviour
 {
 	// Start is called before the first frame update
+	public float loadTransition;
 	public Animator animFace;
 	public string playScene;
 	public string creditsScene;
@@ -30,7 +31,7 @@ public class LoadScene : MonoBehaviour
 		IEnumerator Load()
 		{
 			animFace.SetTrigger("end");
-			yield return new WaitForSeconds(2f);
+			yield return new WaitForSeconds(loadTransition);
 			SceneManager.LoadScene(sceneName);
 		}
 		StartCoroutine(Load());

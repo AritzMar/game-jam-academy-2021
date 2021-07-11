@@ -19,6 +19,7 @@ public class ShuffleButton : MonoBehaviour
 	{
 		if (!active)
 		{
+			PlaySoundResources.PlaySound_String("GJA_Shuffle_Cards");
 			selectedCard = null;
 			other.GetComponent<Movement>().DeactivateHeadGO();
 			deckController.GetCards();
