@@ -33,7 +33,7 @@ public class Game : MonoBehaviour
 		if(round.CurrentRound == round.MaxRound)
 			yield break;
 
-		while(round.CurrentRound < round.MaxRound)
+		while(round.CurrentRound < round.MaxRound )
 		{
 			PerformState("Playing");
 			
@@ -42,9 +42,11 @@ public class Game : MonoBehaviour
 
 			round.CurrentRound++;
 
-			PerformState("Waiting");
-			yield return new WaitUntil(() => flow.GetFlowModifierByName("Answers").Performed);
-
+			if (round.CurrentRound != round.MaxRound)
+			{
+				PerformState("Waiting");
+				yield return new WaitUntil(() => flow.GetFlowModifierByName("Answers").Performed);
+			}
 		}
 	}
 
