@@ -69,8 +69,6 @@ namespace Chtulhitos.Mechanics
 
 		private void Shoot()
 		{
-			
-
 			if (recharging || !followTarget)
 				return;
 
@@ -99,13 +97,14 @@ namespace Chtulhitos.Mechanics
 					laserLine.SetPosition(1, targetToFollow.position);
 					colorChangeTween = LaserMaterial.DOColor(laserRedColor, 1f).SetEase(Ease.InQuart);
 				}
-				else if(agent.velocity.sqrMagnitude > 0.1f)
+				else if(agent.velocity.sqrMagnitude > 0.1f && laserLine.enabled)
 				{
 					laserLine.enabled = false;
 					colorChangeTween.Kill();
 					colorChangeTween = null;
 					LaserMaterial.color = laserGreenColor;
 				}
+
 				yield return null;
 			}
 		}

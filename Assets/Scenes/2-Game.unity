@@ -45627,7 +45627,10 @@ MonoBehaviour:
   SpawnSpeed: {fileID: 11400000, guid: 7d167e2a8e674b74381a4003379240de, type: 2}
   SpawnSize: 10
   FinishTarget: {fileID: 1964454679}
-  ObjectToSpawn: {fileID: 3686447722283403881, guid: e9d0c7378c7e56a4da826a307955649c, type: 3}
+  ObjectsToSpawn:
+  - {fileID: 6818615411624018647, guid: c625e19132285984ab5b4a64bc7cc9ff, type: 3}
+  - {fileID: 8241394892745635090, guid: be0449546251f2546b9f5cc140f3ee88, type: 3}
+  - {fileID: 8241394892745635090, guid: 92a66ab60f9392649a6cd49dc10b0a8d, type: 3}
   difficult: {fileID: 11400000, guid: b6e09ef7f83add64ebef6a951205094b, type: 2}
 --- !u!208 &1100517712
 NavMeshObstacle:
@@ -60681,7 +60684,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1203741370}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.003, y: -0.23, z: -0.2}
+  m_LocalPosition: {x: 0.003, y: -0.047, z: -0.2}
   m_LocalScale: {x: 8.7, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1100517710}
@@ -83842,7 +83845,10 @@ MonoBehaviour:
   SpawnSpeed: {fileID: 11400000, guid: 7d167e2a8e674b74381a4003379240de, type: 2}
   SpawnSize: 10
   FinishTarget: {fileID: 1100517710}
-  ObjectToSpawn: {fileID: 3686447722283403881, guid: e9d0c7378c7e56a4da826a307955649c, type: 3}
+  ObjectsToSpawn:
+  - {fileID: 6818615411624018647, guid: c625e19132285984ab5b4a64bc7cc9ff, type: 3}
+  - {fileID: 8241394892745635090, guid: be0449546251f2546b9f5cc140f3ee88, type: 3}
+  - {fileID: 8241394892745635090, guid: 92a66ab60f9392649a6cd49dc10b0a8d, type: 3}
   difficult: {fileID: 11400000, guid: b6e09ef7f83add64ebef6a951205094b, type: 2}
 --- !u!208 &1964454681
 NavMeshObstacle:

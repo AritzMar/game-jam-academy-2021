@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Chtulhitos.Mechanics
@@ -8,7 +9,8 @@ namespace Chtulhitos.Mechanics
 		public FloatVariable SpawnSpeed;
 		public float SpawnSize;
 		public Transform FinishTarget;
-		public GameObject ObjectToSpawn;
+		[Header("Objects to spawn at each difficulty level")]
+		public List<GameObject> ObjectsToSpawn;
 		public IntVariable difficult; 
 
 		private IEnumerator spawnCorrutine;
@@ -43,12 +45,12 @@ namespace Chtulhitos.Mechanics
 		{
 			while(true)
 			{
-				var instanceObject = Instantiate(ObjectToSpawn, transform.position, Quaternion.identity);
+				var objectToSpawn = ObjectsToSpawn[Mathf.Clamp(difficult.CurrentValue, 1, 3) - 1];
+				var instanceObject = Instantiate(objectToSpawn, transform.position, Quaternion.identity);
 				ISpawnable spawnObject = instanceObject.GetComponent<ISpawnable>();
 				spawnObject.PositionToGo = FinishTarget.position;
-
-				instanceObject.transform.SetParent(transform);
-				instanceObject.transform.localPosition = new Vector3(Random.Range(-(SpawnSize / 2f), (SpawnSize / 2f)), 0f, 0f);
+				//instanceObject.transform.SetParent(transform);
+				instanceObject.transform.localPosition = new Vector3(Random.Range(-(SpawnSize / 2f), (SpawnSize / 2f)), transform.position.y, transform.position.z);
 
 				yield return new WaitForSeconds(SpawnSpeed.CurrentValue);
 			}
