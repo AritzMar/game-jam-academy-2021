@@ -63,4 +63,7 @@ public class CheckGameCompleted : MonoBehaviour
 				break;
 		}
 	}
+
+	public void ResetPerfectPhrases() => calledPerfectReqNames.Clear();
+
 }
