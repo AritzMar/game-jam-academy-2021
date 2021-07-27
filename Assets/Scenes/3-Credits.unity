@@ -179,6 +179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c5d2a3a53e5f6d4689c5c4b2b2e1789, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loadTransition: 0
   animFace: {fileID: 0}
   playScene: 2-Game
   creditsScene: 3-Credits
@@ -417,7 +418,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 183.35, y: 164.28998}
+  m_AnchoredPosition: {x: 183.34998, y: 164.28998}
   m_SizeDelta: {x: -608.571, y: -328.57098}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &545509198
@@ -977,7 +978,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -20.781006, y: 0.7250061}
+  m_AnchoredPosition: {x: -20.781006, y: 0.7249756}
   m_SizeDelta: {x: -47.461, y: -1.4610004}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &907523407
@@ -1052,7 +1053,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 183.35, y: -164.28998}
+  m_AnchoredPosition: {x: 183.34998, y: -164.28998}
   m_SizeDelta: {x: -608.571, y: -328.57098}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &929707577
@@ -1830,7 +1831,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -183.34998, y: 164.28}
+  m_AnchoredPosition: {x: -183.34998, y: 164.28003}
   m_SizeDelta: {x: -608.571, y: -328.57098}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1276649425
